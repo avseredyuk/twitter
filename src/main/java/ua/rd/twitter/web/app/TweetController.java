@@ -13,20 +13,21 @@ import ua.rd.twitter.service.TweetService;
  * @author andrii
  */
 @Controller
-public class TweetsController {
+@RequestMapping("/tweet")
+public class TweetController {
     private final TweetService tweetService;
 
     @Autowired
-    public TweetsController(TweetService tweetService) {
+    public TweetController(TweetService tweetService) {
         this.tweetService = tweetService;
     }
 
-    @RequestMapping(value = "/tweets")
+    @RequestMapping(value = "/all")
     @GetMapping
     public String allTweets(Model model) {
         Iterable<Tweet> tweets = tweetService.findAll();
         model.addAttribute("tweets", tweets);
-        return "tweets";
+        return "tweet/all";
     }
     
 }
