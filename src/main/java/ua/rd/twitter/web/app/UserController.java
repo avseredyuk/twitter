@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ua.rd.twitter.domain.User;
+import ua.rd.twitter.service.TimelineService;
 import ua.rd.twitter.service.UserService;
 
 /**
@@ -15,7 +16,6 @@ import ua.rd.twitter.service.UserService;
 public class UserController {
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }

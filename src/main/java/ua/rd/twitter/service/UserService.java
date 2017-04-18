@@ -8,4 +8,5 @@ import ua.rd.twitter.domain.User;
 public interface UserService {
     void save(User user);
     Iterable<User> findAll();
+    User findByName(String name);
 }

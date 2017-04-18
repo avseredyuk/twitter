@@ -3,7 +3,7 @@ package ua.rd.twitter.domain;
 
 public class Tweet {
     private User user;
-     private String text;
+    private String text;
 
     public Tweet() {
     }

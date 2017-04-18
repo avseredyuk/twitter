@@ -7,5 +7,6 @@ import ua.rd.twitter.domain.User;
  */
 public interface UserRepository {
     void save(User user);
+    User findByName(String name);
     Iterable<User> findAll();
 }

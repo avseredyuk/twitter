@@ -28,4 +28,9 @@ public class SimpleUserService implements UserService {
     public Iterable<User> findAll() {
         return userRepository.findAll();
     }
+
+    @Override
+    public User findByName(String name) {
+        return userRepository.findByName(name);
+    }
 }

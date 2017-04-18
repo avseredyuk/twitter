@@ -16,8 +16,8 @@ public class InMemUserRepository implements UserRepository {
 
     @PostConstruct
     public void init(){
-        users.add(new User("vasya"));
-        users.add(new User("petya"));
+        users.add(new User("vasya", 14));
+        users.add(new User("petya", 16));
     }
 
     @Override
@@ -28,5 +28,13 @@ public class InMemUserRepository implements UserRepository {
     @Override
     public Iterable<User> findAll() {
         return new ArrayList<>(users);
+    }
+
+    @Override
+    public User findByName(String name) {
+        return users.stream()
+                .filter(u -> u.getName().equals(name))
+                .findFirst()
+                .get();
     }
 }

@@ -40,4 +40,8 @@ public class SimpleTweetService implements TweetService {
         return null;
     }
 
+    @Override
+    public Iterable<Tweet> findByUser(User user) {
+        return tweetRepository.findByUser(user);
+    }
 }

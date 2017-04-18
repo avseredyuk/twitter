@@ -2,6 +2,7 @@ package ua.rd.twitter.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 import ua.rd.twitter.domain.Tweet;
@@ -13,8 +14,8 @@ public class InMemTweetRepository implements TweetRepository  {
     
     @PostConstruct
     public void init(){
-        tweets.add(new Tweet(new User("2del1"), "First tweeet"));
-        tweets.add(new Tweet(new User("2del2"), "Second tweeet"));
+        tweets.add(new Tweet(new User("vasya", 14), "First tweeet"));
+        tweets.add(new Tweet(new User("petya", 16), "Second tweeet"));
     }
     
     @Override
@@ -25,5 +26,12 @@ public class InMemTweetRepository implements TweetRepository  {
     @Override
     public Iterable<Tweet> findAll() {
         return new ArrayList(tweets);
+    }
+
+    @Override
+    public Iterable<Tweet> findByUser(User user) {
+        return tweets.stream()
+                .filter(t -> t.getUser().getId().equals(user.getId()))
+                .collect(Collectors.toList());
     }
 }

@@ -11,6 +11,11 @@ public class User {
         this.name = name;
     }
 
+    public User(String name, Integer id) {
+        this.name = name;
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
