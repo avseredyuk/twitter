@@ -80,6 +80,7 @@ public class SimpleTweetService implements TweetService {
             mentionedUsers.add(user);
         }
         tweet.setMentionedUsers(mentionedUsers);
+        timelineRepository.find(tweet.getUser()).put(tweet);
         for(User mentionedUser : mentionedUsers) {
             Timeline timeline = timelineRepository.find(mentionedUser);
             timeline.put(tweet);

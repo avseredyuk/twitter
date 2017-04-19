@@ -11,12 +11,22 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    
     <mvc:view-resolvers>
         <mvc:jsp prefix="/WEB-INF/jsp/"
                  suffix=".jsp"
                  view-class="org.springframework.web.servlet.view.JstlView"/>
     </mvc:view-resolvers>
+    
     <context:component-scan base-package="ua.rd.twitter.web.app"/>
+    
+    <bean name="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="ua.rd.twitter.web.app.TweetConverter"/>
+            </set>
+        </property>
+    </bean>
 
 </beans>

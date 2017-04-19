@@ -68,17 +68,4 @@ public class TweetController {
         return new ModelAndView("redirect:/web/tweet/all");
     }
 
-    @InitBinder
-    public void tweetBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Tweet.class,
-                new PropertiesEditor() {
-                    @Override
-                    public void setAsText(String text) throws IllegalArgumentException {
-                        Long id = Long.valueOf(text);
-                        Optional<Tweet> tweet = tweetService.find(id);
-                        setValue(tweet.orElse(null));
-                    }
-                });
-    }
-
 }

@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db042c1e-a412-4f70-b7ab-4b8bce0a4d18" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_7_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Twitter_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Twitter_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/rd/twitter/web/app/TweetControllerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Twitter.iml" afterPath="$PROJECT_DIR$/Twitter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTweetRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTweetRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/TweetRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/TweetRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/TweetService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/TweetService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -44,29 +37,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TweetController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="379">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1276#1277#0" expanded="true" />
                 <element signature="e#1313#1314#0" expanded="true" />
                 <element signature="e#2064#2065#0" expanded="true" />
                 <element signature="e#2103#2104#0" expanded="true" />
-                <element signature="e#2481#2843#0" expanded="true" />
-                <element signature="e#2842#2843#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InMemUserRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
+      <file leaf-file-name="TweetConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp">
+      <file leaf-file-name="webContext.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            <state relative-caret-position="216">
+              <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -111,8 +102,8 @@
       <file leaf-file-name="SimpleTweetService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="663">
+              <caret line="82" column="58" selection-start-line="82" selection-start-column="58" selection-end-line="82" selection-end-column="58" />
               <folding>
                 <element signature="e#1835#1836#0" expanded="true" />
                 <element signature="e#1882#1883#0" expanded="true" />
@@ -121,31 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serviceContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/serviceContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SimpleTweetServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+            <state relative-caret-position="171">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="22" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,9 +130,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -195,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error/notfound.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/timeline.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/create.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/serviceContext.xml" />
         <option value="$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/Timeline.java" />
@@ -213,12 +183,15 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/TweetRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTweetRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/TweetService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ua/rd/twitter/web/app/TweetControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" />
       </list>
     </option>
   </component>
@@ -390,6 +363,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -417,104 +424,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tweet" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -703,6 +612,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ua.rd.twitter.web.app" />
       <recent name="ua.rd.twitter.service" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -713,7 +623,7 @@
       <recent name="C:\Users\Anton_Serediuk\epamclasses\Twitter\src\main\webapp\WEB-INF\jsp\user" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SimpleTweetServiceTest">
+  <component name="RunManager" selected="JUnit.TweetControllerTest">
     <configuration default="false" name="SimpleTweetServiceTest.checkMentions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -752,6 +662,32 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ua.rd.twitter.service" />
       <option name="MAIN_CLASS_NAME" value="ua.rd.twitter.service.SimpleTweetServiceTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="TweetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.rd.twitter.web.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Twitter" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.rd.twitter.web.app" />
+      <option name="MAIN_CLASS_NAME" value="ua.rd.twitter.web.app.TweetControllerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1203,14 +1139,16 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest.checkMentions" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TweetControllerTest" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest.checkMentions" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TweetControllerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SimpleTweetServiceTest.checkMentions" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -1259,7 +1197,7 @@
       <workItem from="1492507532989" duration="74000" />
       <workItem from="1492507687324" duration="143000" />
       <workItem from="1492507849273" duration="13155000" />
-      <workItem from="1492588503115" duration="20736000" />
+      <workItem from="1492588503115" duration="22552000" />
     </task>
     <task id="LOCAL-00001" summary="unifying controllers">
       <created>1492511986312</created>
@@ -1289,7 +1227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492601493277</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="@InitBinder example">
+      <created>1492609460575</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1492609460575</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1311,21 +1256,21 @@
     <history-entry file="SimpleTweetServiceTest - 2017.04.19 at 15h 13m 16s.xml">
       <configuration name="SimpleTweetServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleTweetServiceTest_checkMentions - 2017.04.19 at 13h 17m 18s.xml">
-      <configuration name="SimpleTweetServiceTest.checkMentions" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SimpleTweetServiceTest_checkMentions - 2017.04.19 at 13h 17m 58s.xml">
-      <configuration name="SimpleTweetServiceTest.checkMentions" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SimpleTweetServiceTest_checkMentions - 2017.04.19 at 13h 18m 03s.xml">
       <configuration name="SimpleTweetServiceTest.checkMentions" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SimpleTweetServiceTest_checkMentions - 2017.04.19 at 13h 18m 10s.xml">
       <configuration name="SimpleTweetServiceTest.checkMentions" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TweetControllerTest - 2017.04.19 at 17h 05m 02s.xml">
+      <configuration name="TweetControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetControllerTest - 2017.04.19 at 17h 05m 24s.xml">
+      <configuration name="TweetControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40768000" />
+    <option name="totallyTimeSpent" value="42584000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1354,7 +1299,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20546874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1390,7 +1335,8 @@
     <MESSAGE value="timeline basic implementation added" />
     <MESSAGE value="a lot of stuff implemented" />
     <MESSAGE value="moved from int to long in ID usage in User &amp; Tweet class" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved from int to long in ID usage in User &amp; Tweet class" />
+    <MESSAGE value="@InitBinder example" />
+    <option name="LAST_COMMIT_MESSAGE" value="@InitBinder example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1401,8 +1347,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/Benchmark.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/BenchmarkBeanPostProcessor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/Config.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/Context.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/InitialContext.java" />
@@ -1658,30 +1602,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.7.RELEASE/spring-test-4.3.7.RELEASE.jar!/org/springframework/test/context/ContextConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="e#1835#1836#0" expanded="true" />
-            <element signature="e#1882#1883#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1711,16 +1636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1729,20 +1644,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="82" column="58" selection-start-line="82" selection-start-column="58" selection-end-line="82" selection-end-column="58" />
+          <folding>
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="22" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TimelineController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        <state relative-caret-position="513">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1759,27 +1693,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TimelineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/web/app/TweetControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="379">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
             <element signature="e#1313#1314#0" expanded="true" />
             <element signature="e#2064#2065#0" expanded="true" />
             <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2481#2843#0" expanded="true" />
-            <element signature="e#2842#2843#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
