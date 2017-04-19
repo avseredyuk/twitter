@@ -2,6 +2,7 @@ package ua.rd.twitter.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 
@@ -47,10 +48,15 @@ public class InMemTweetRepository implements TweetRepository  {
     }
 
     @Override
-    public Tweet find(int id) {
-        return tweets.stream()
-                .filter(t -> t.getId().equals(id))
-                .findFirst()
-                .get();
+    public Optional<Tweet> find(Long id) {
+        Optional<Tweet> tweet;
+        try {
+            tweet = tweets.stream()
+                    .filter(t -> t.getId().equals(id))
+                    .findFirst();
+        } catch (IndexOutOfBoundsException e) {
+            tweet = Optional.empty();
+        }
+        return tweet;
     }
 }

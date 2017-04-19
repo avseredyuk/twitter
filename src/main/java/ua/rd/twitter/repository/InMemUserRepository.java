@@ -35,6 +35,7 @@ public class InMemUserRepository implements UserRepository {
 
     @Override
     public User find(String name) {
+        System.out.println("======================================================== " + name);
         return users.stream()
                 .filter(u -> u.getName().equals(name))
                 .findFirst()

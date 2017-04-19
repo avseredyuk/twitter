@@ -16,6 +16,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.7.RELEASE" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
         </element>
       </element>

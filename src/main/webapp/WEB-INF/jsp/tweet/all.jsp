@@ -20,7 +20,8 @@
                 Likes: ${tweet.likesCount}
             </td>
             <td width="15%">
-                <form method="post" action="delete/${tweet.id}">
+                <form method="post" action="delete">
+                    <input type="hidden" name="id" value="${tweet.id}">
                     <input type="submit" value="Delete"/>
                 </form>
             </td>

@@ -12,6 +12,7 @@ import ua.rd.twitter.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,7 +48,7 @@ public class SimpleTweetService implements TweetService {
         return tweetRepository.findAll();
     }
 
-    @Lookup
+    @Lookup("tweet")
     public Tweet createEmptyTweet() {
         return null;
     }
@@ -58,7 +59,7 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public Tweet find(int id) {
+    public Optional<Tweet> find(Long id) {
         return tweetRepository.find(id);
     }
 
