@@ -2,7 +2,7 @@ package ua.rd.twitter.domain;
 
 public class User {
     private String name;
-    private Integer id;
+    private Long id;
 
     public User() {
     }
@@ -11,7 +11,7 @@ public class User {
         this.name = name;
     }
 
-    public User(String name, Integer id) {
+    public User(String name, Long id) {
         this.name = name;
         this.id = id;
     }
@@ -24,11 +24,11 @@ public class User {
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

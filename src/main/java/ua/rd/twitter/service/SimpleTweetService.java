@@ -3,8 +3,10 @@ package ua.rd.twitter.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
+import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
+import ua.rd.twitter.repository.TimelineRepository;
 import ua.rd.twitter.repository.TweetRepository;
 import ua.rd.twitter.repository.UserRepository;
 
@@ -17,11 +19,13 @@ import java.util.regex.Pattern;
 public class SimpleTweetService implements TweetService {
     private final TweetRepository tweetRepository;
     private final UserRepository userRepository;
+    private final TimelineRepository timelineRepository;
 
     @Autowired
-    public SimpleTweetService(TweetRepository tweetRepository, UserRepository userRepository) {
+    public SimpleTweetService(TweetRepository tweetRepository, UserRepository userRepository, TimelineRepository timelineRepository) {
         this.tweetRepository = tweetRepository;
         this.userRepository = userRepository;
+        this.timelineRepository = timelineRepository;
     }
 
     @Override
@@ -34,8 +38,8 @@ public class SimpleTweetService implements TweetService {
 
     @Override
     public void save(Tweet tweet) {
-        checkMentions(tweet);
         tweetRepository.save(tweet);
+        checkMentions(tweet);
     }
 
     @Override
@@ -75,5 +79,9 @@ public class SimpleTweetService implements TweetService {
             mentionedUsers.add(user);
         }
         tweet.setMentionedUsers(mentionedUsers);
+        for(User mentionedUser : mentionedUsers) {
+            Timeline timeline = timelineRepository.find(mentionedUser);
+            timeline.put(tweet);
+        }
     }
 }

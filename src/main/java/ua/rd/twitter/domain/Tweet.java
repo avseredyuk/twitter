@@ -8,16 +8,16 @@ public class Tweet {
     private String text;
     private List<User> likes = new ArrayList<>();
     private List<User> mentionedUsers = new ArrayList<>();
-    private Integer id;
+    private Long id;
 
     public Tweet() {
     }
 
-    public Tweet(Integer id) {
+    public Tweet(Long id) {
         this.id = id;
     }
 
-    public Tweet(User user, String text, Integer id) {
+    public Tweet(User user, String text, Long id) {
         this.user = user;
         this.text = text;
         this.id = id;
@@ -53,11 +53,11 @@ public class Tweet {
         this.text = text;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
