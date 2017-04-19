@@ -3,10 +3,7 @@ package ua.rd.twitter.web.app;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TimelineService;
@@ -21,6 +18,7 @@ public class TimelineController {
     private final TimelineService timelineService;
     private final UserService userService;
 
+    @Autowired
     public TimelineController(TimelineService timelineService, UserService userService) {
         this.timelineService = timelineService;
         this.userService = userService;
@@ -29,10 +27,12 @@ public class TimelineController {
     @RequestMapping("/{username}")
     @GetMapping
     public String userTimeline(@PathVariable("username") String username, Model model) {
-        User user = userService.findByName(username);
-        Timeline timeline = timelineService.compose(user);
+        User user = userService.find(username);
+        Timeline timeline = timelineService.find(user);
         model.addAttribute("timeline", timeline);
+        model.addAttribute("user", user);
         return "timeline";
+
     }
 
 }

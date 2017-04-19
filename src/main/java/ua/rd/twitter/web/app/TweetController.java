@@ -3,9 +3,9 @@ package ua.rd.twitter.web.app;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ua.rd.twitter.domain.Tweet;
+import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 
 /**
@@ -22,12 +22,35 @@ public class TweetController {
         this.tweetService = tweetService;
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping("/all")
     @GetMapping
     public String allTweets(Model model) {
         Iterable<Tweet> tweets = tweetService.findAll();
         model.addAttribute("tweets", tweets);
         return "tweet/all";
     }
+
+    @RequestMapping(value="/create", method=RequestMethod.GET)
+    public String tweet() {
+        return "tweet/create";
+    }
+
+    @RequestMapping(value="/create", method=RequestMethod.POST)
+    public String createTweet(User user, String text) {
+        Tweet tweet = tweetService.createTweet(text, user);
+        tweetService.save(tweet);
+        return "tweet/all";
+    }
+
+    @RequestMapping("/delete/{id}")
+    @PostMapping
+    public String deleteTweet(@PathVariable("id") Integer id) {
+        Tweet tweet = new Tweet(id);
+        tweetService.delete(tweet);
+        System.out.println(tweet);
+        return "tweet/all";
+    }
+
+
     
 }

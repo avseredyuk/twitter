@@ -22,8 +22,17 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
-    public Timeline compose(User user) {
-        return timelineRepository.compose(user);
+    public Timeline find(User user) {
+        return timelineRepository.find(user);
     }
 
+    @Override
+    public void save(Timeline timeline) {
+        timelineRepository.save(timeline);
+    }
+
+    @Override
+    public Iterable<Timeline> findAll() {
+        return timelineRepository.findAll();
+    }
 }

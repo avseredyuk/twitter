@@ -6,5 +6,7 @@ import ua.rd.twitter.domain.User;
 public interface TweetRepository {
     void save(Tweet tweet);
     Iterable<Tweet> findAll();
-    Iterable<Tweet> findByUser(User user);
+    Iterable<Tweet> find(User user);
+    Tweet find(int id);
+    void delete(Tweet tweet);
 }

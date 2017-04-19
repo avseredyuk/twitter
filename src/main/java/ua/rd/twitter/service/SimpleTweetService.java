@@ -2,46 +2,78 @@ package ua.rd.twitter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TweetRepository;
+import ua.rd.twitter.repository.UserRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service("tweetService")
 public class SimpleTweetService implements TweetService {
     private final TweetRepository tweetRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public SimpleTweetService(TweetRepository tweetRepository) {
+    public SimpleTweetService(TweetRepository tweetRepository, UserRepository userRepository) {
         this.tweetRepository = tweetRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
-    public Tweet createTweet(String text, User user) throws Exception {
+    public Tweet createTweet(String text, User user) {
         Tweet newTweet = createEmptyTweet();
         newTweet.setText(text);
+        newTweet.setUser(user);
         return newTweet;
     }
 
     @Override
     public void save(Tweet tweet) {
+        checkMentions(tweet);
         tweetRepository.save(tweet);
     }
 
     @Override
     public Iterable<Tweet> findAll() {
-        System.out.println("Called");
         return tweetRepository.findAll();
     }
 
-    @Lookup()
-    Tweet createEmptyTweet() throws Exception {
+    @Lookup
+    public Tweet createEmptyTweet() {
         return null;
     }
 
     @Override
-    public Iterable<Tweet> findByUser(User user) {
-        return tweetRepository.findByUser(user);
+    public Iterable<Tweet> find(User user) {
+        return tweetRepository.find(user);
+    }
+
+    @Override
+    public Tweet find(int id) {
+        return tweetRepository.find(id);
+    }
+
+    @Override
+    public void delete(Tweet tweet) {
+        tweetRepository.delete(tweet);
+    }
+
+    //todo: refactor this trash
+    private void checkMentions(Tweet tweet) {
+        List<User> mentionedUsers = new ArrayList<>();
+        String tweetText = tweet.getText();
+        Pattern pattern = Pattern.compile("@([\\w\\d]+)");
+        Matcher matcher = pattern.matcher(tweetText);
+        while (matcher.find()) {
+            String userName = matcher.group(1);
+            User user = userRepository.find(userName);
+            mentionedUsers.add(user);
+        }
+        tweet.setMentionedUsers(mentionedUsers);
     }
 }

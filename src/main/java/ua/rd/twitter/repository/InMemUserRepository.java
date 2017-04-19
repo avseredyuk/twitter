@@ -1,5 +1,6 @@
 package ua.rd.twitter.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.rd.twitter.domain.User;
 
@@ -14,10 +15,12 @@ import java.util.List;
 public class InMemUserRepository implements UserRepository {
     private List<User> users = new ArrayList<>();
 
+    @Autowired
+    private ArrayList<User> testUsers;
+
     @PostConstruct
     public void init(){
-        users.add(new User("vasya", 14));
-        users.add(new User("petya", 16));
+        users.addAll(testUsers);
     }
 
     @Override
@@ -31,9 +34,17 @@ public class InMemUserRepository implements UserRepository {
     }
 
     @Override
-    public User findByName(String name) {
+    public User find(String name) {
         return users.stream()
                 .filter(u -> u.getName().equals(name))
+                .findFirst()
+                .get();
+    }
+
+    @Override
+    public User find(int id) {
+        return users.stream()
+                .filter(u -> u.getId().equals(id))
                 .findFirst()
                 .get();
     }

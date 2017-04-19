@@ -8,6 +8,8 @@ import java.util.Iterator;
 public interface TweetService {
     void save(Tweet tweet);
     Iterable<Tweet> findAll();
-    Iterable<Tweet> findByUser(User user);
-    Tweet createTweet(String text, User user) throws Exception;
+    Iterable<Tweet> find(User user);
+    Tweet find(int id);
+    Tweet createTweet(String text, User user);
+    void delete(Tweet tweet);
 }

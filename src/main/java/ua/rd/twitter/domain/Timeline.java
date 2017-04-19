@@ -5,10 +5,11 @@ import java.util.List;
 
 
 public class Timeline {
-    private final List<Tweet> tweets = new ArrayList<>();
+    private final List<Tweet> tweets;
     private final User user;
 
-    public Timeline(User user) {
+    public Timeline(List<Tweet> tweets, User user) {
+        this.tweets = tweets;
         this.user = user;
     }
 

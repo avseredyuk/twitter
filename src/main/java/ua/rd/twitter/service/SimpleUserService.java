@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.UserRepository;
 
-import java.util.ArrayList;
-
 /**
  * Created by Anton_Serediuk on 4/14/2017.
  */
@@ -30,7 +28,12 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public User findByName(String name) {
-        return userRepository.findByName(name);
+    public User find(String name) {
+        return userRepository.find(name);
+    }
+
+    @Override
+    public User find(int id) {
+        return userRepository.find(id);
     }
 }

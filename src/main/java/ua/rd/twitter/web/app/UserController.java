@@ -40,10 +40,4 @@ public class UserController {
         return "user/all";
     }
 
-//    @RequestMapping(value = "/timeline", method = RequestMethod.GET)
-//    public @ResponseBody String qwerty(User user) {
-//        return "FUCK " + user.getName();
-//    }
-
-
 }

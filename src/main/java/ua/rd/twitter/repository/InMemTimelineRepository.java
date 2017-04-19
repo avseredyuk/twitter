@@ -6,23 +6,40 @@ import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Anton_Serediuk on 4/18/2017.
  */
 @Repository("timelineRepository")
 public class InMemTimelineRepository implements TimelineRepository {
-    private final TweetRepository tweetRepository;
+    private List<Timeline> timelines = new ArrayList<>();
 
     @Autowired
-    public InMemTimelineRepository(TweetRepository tweetRepository) {
-        this.tweetRepository = tweetRepository;
+    private ArrayList<Timeline> testTimelines;
+
+    @PostConstruct
+    public void init(){
+        timelines.addAll(testTimelines);
     }
 
     @Override
-    public Timeline compose(User user) {
-        Iterable<Tweet> tweetsByUser = tweetRepository.findByUser(user);
-        Timeline timeline = new Timeline(user);
-        timeline.putAll(tweetsByUser);
-        return timeline;
+    public Timeline find(User user) {
+        return timelines.stream()
+                .filter(t -> t.getUser().equals(user))
+                .findFirst()
+                .get();
+    }
+
+    @Override
+    public void save(Timeline timeline) {
+        timelines.add(timeline);
+    }
+
+    @Override
+    public Iterable<Timeline> findAll() {
+        return new ArrayList<>(timelines);
     }
 }
