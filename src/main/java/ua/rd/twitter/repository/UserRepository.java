@@ -8,6 +8,6 @@ import ua.rd.twitter.domain.User;
 public interface UserRepository {
     void save(User user);
     User find(String name);
-    User find(int id);
+    User find(Long id);
     Iterable<User> findAll();
 }

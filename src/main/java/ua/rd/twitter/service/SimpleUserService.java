@@ -33,7 +33,7 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public User find(int id) {
+    public User find(Long id) {
         return userRepository.find(id);
     }
 }

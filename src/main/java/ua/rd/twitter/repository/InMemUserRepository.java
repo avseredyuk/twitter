@@ -35,7 +35,6 @@ public class InMemUserRepository implements UserRepository {
 
     @Override
     public User find(String name) {
-        System.out.println("======================================================== " + name);
         return users.stream()
                 .filter(u -> u.getName().equals(name))
                 .findFirst()
@@ -43,7 +42,7 @@ public class InMemUserRepository implements UserRepository {
     }
 
     @Override
-    public User find(int id) {
+    public User find(Long id) {
         return users.stream()
                 .filter(u -> u.getId().equals(id))
                 .findFirst()

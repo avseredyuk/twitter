@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db042c1e-a412-4f70-b7ab-4b8bce0a4d18" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/AllControllersAdvice.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/AllControllersAdvice.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetControllerAdvice.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -24,16 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="webContext.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -47,39 +42,14 @@
       <file leaf-file-name="TweetController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="149">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1276#1277#0" expanded="true" />
                 <element signature="e#1313#1314#0" expanded="true" />
-                <element signature="e#2103#2104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllControllersAdvice.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/AllControllersAdvice.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#834#1196#0" expanded="true" />
-                <element signature="e#1195#1196#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InMemTweetRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTweetRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2060#2061#0" expanded="true" />
+                <element signature="e#2099#2100#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,21 +58,72 @@
       <file leaf-file-name="SimpleTweetService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="82" column="58" selection-start-line="82" selection-start-column="58" selection-end-line="82" selection-end-column="58" />
+            <state relative-caret-position="404">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TweetControllerAdvice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetControllerAdvice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="649">
+              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
               <folding>
-                <element signature="e#1835#1836#0" expanded="true" />
-                <element signature="e#1882#1883#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#972#1334#0" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
+                <element signature="e#1475#1766#0" expanded="true" />
+                <element signature="e#1765#1766#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleTweetServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java">
+      <file leaf-file-name="InMemUserRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="22" selection-end-column="2" />
+            <state relative-caret-position="479">
+              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tweet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/Tweet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="661">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1125#1126#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleUserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#915#916#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InMemTimelineRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTimelineRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,9 +181,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/TimelineRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/TimelineService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTimelineService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TimelineController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/Tweet.java" />
@@ -171,15 +189,19 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/TweetService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/tweet/all.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java" />
         <option value="$PROJECT_DIR$/src/test/java/ua/rd/twitter/web/app/TweetControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetControllerAdvice.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/AllControllersAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/UserControllerAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetControllerAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java" />
       </list>
     </option>
   </component>
@@ -1185,7 +1207,7 @@
       <workItem from="1492507532989" duration="74000" />
       <workItem from="1492507687324" duration="143000" />
       <workItem from="1492507849273" duration="13155000" />
-      <workItem from="1492588503115" duration="23295000" />
+      <workItem from="1492588503115" duration="25193000" />
     </task>
     <task id="LOCAL-00001" summary="unifying controllers">
       <created>1492511986312</created>
@@ -1229,7 +1251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492611278805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="@ControllerAdvice example">
+      <created>1492612036752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1492612036752</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1265,7 +1294,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43327000" />
+    <option name="totallyTimeSpent" value="45225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1289,7 +1318,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34157303" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65842694" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1332,7 +1361,8 @@
     <MESSAGE value="moved from int to long in ID usage in User &amp; Tweet class" />
     <MESSAGE value="@InitBinder example" />
     <MESSAGE value="Converter example" />
-    <option name="LAST_COMMIT_MESSAGE" value="Converter example" />
+    <MESSAGE value="@ControllerAdvice example" />
+    <option name="LAST_COMMIT_MESSAGE" value="@ControllerAdvice example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1343,7 +1373,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/InitialContext.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/infrastructure/JavaConfig.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.7.RELEASE/spring-context-4.3.7.RELEASE-sources.jar!/org/springframework/ui/Model.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1453,22 +1482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTimelineRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#969#970#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/TimelineRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1483,25 +1496,6 @@
           <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1534,32 +1528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/Tweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1638,31 +1606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="82" column="58" selection-start-line="82" selection-start-column="58" selection-end-line="82" selection-end-column="58" />
-          <folding>
-            <element signature="e#1835#1836#0" expanded="true" />
-            <element signature="e#1882#1883#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ua/rd/twitter/service/SimpleTweetServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1691,10 +1638,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TimelineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="294">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1703,19 +1650,17 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.7.RELEASE/spring-web-4.3.7.RELEASE-sources.jar!/org/springframework/web/bind/annotation/ControllerAdvice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-246">
+        <state relative-caret-position="-522">
           <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TimelineController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1729,33 +1674,121 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="198">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1313#1314#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/AllControllersAdvice.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        <state relative-caret-position="153">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/UserControllerAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemTimelineRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#834#1196#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#2060#2061#0" expanded="true" />
+            <element signature="e#2099#2100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleTweetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/web/app/TweetControllerAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#972#1334#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1475#1766#0" expanded="true" />
+            <element signature="e#1765#1766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/service/SimpleUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#915#916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/repository/InMemUserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/rd/twitter/domain/Tweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
           </folding>
         </state>
       </provider>

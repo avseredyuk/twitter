@@ -9,5 +9,5 @@ public interface UserService {
     void save(User user);
     Iterable<User> findAll();
     User find(String name);
-    User find(int id);
+    User find(Long id);
 }

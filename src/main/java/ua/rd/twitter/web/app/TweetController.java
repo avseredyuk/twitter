@@ -44,8 +44,8 @@ public class TweetController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView createTweet(@RequestParam("username") String userName, String text) {
-        User user = userService.find(userName);
+    public ModelAndView createTweet(@RequestParam("username") User user, String text) {
+//        User user = userService.find(userName);
         Tweet tweet = tweetService.createTweet(text, user);
         tweetService.save(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
