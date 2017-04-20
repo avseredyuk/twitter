@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.UserRepository;
 
+import java.util.List;
+
 /**
  * Created by Anton_Serediuk on 4/14/2017.
  */
@@ -25,6 +27,11 @@ public class SimpleUserService implements UserService {
     @Override
     public Iterable<User> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<User> findAllByUsernameList(List<String> userNames) {
+        return userRepository.findAllByUsernameList(userNames);
     }
 
     @Override

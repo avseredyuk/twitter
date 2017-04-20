@@ -1,18 +1,14 @@
 package ua.rd.twitter.web.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 import ua.rd.twitter.service.UserService;
-
-import java.util.Optional;
 
 /**
  *
@@ -47,7 +43,7 @@ public class TweetController {
     public ModelAndView createTweet(@RequestParam("username") User user, String text) {
 //        User user = userService.find(userName);
         Tweet tweet = tweetService.createTweet(text, user);
-        tweetService.save(tweet);
+        tweetService.saveAndProcessMentions(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
     }
 

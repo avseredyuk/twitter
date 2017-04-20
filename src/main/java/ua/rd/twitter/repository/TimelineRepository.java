@@ -9,5 +9,6 @@ import ua.rd.twitter.domain.User;
 public interface TimelineRepository {
     Timeline find(User user);
     void save(Timeline timeline);
+    void update(Timeline timeline);
     Iterable<Timeline> findAll();
 }

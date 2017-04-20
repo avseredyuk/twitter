@@ -2,6 +2,7 @@ package ua.rd.twitter.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Tweet {
     private User user;
@@ -30,7 +31,9 @@ public class Tweet {
     }
 
     public void setMentionedUsers(List<User> users) {
-        mentionedUsers.addAll(users);
+        List<User> filteredUsers = users.stream().filter(u -> !u.equals(this.user))
+                .collect(Collectors.toList());
+        mentionedUsers.addAll(filteredUsers);
     }
 
     public int getLikesCount() {
@@ -71,6 +74,7 @@ public class Tweet {
                 "user=" + user +
                 ", text='" + text + '\'' +
                 ", likes=" + likes +
+                ", mentionedUsers=" + mentionedUsers +
                 ", id=" + id +
                 '}';
     }

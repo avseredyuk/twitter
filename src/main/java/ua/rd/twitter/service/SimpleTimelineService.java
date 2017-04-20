@@ -6,8 +6,8 @@ import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TimelineRepository;
-import ua.rd.twitter.repository.TweetRepository;
-import ua.rd.twitter.repository.UserRepository;
+
+import java.util.List;
 
 /**
  * Created by Anton_Serediuk on 4/18/2017.
@@ -34,5 +34,21 @@ public class SimpleTimelineService implements TimelineService{
     @Override
     public Iterable<Timeline> findAll() {
         return timelineRepository.findAll();
+    }
+
+    @Override
+    public void update(Timeline timeline) {
+        timelineRepository.update(timeline);
+    }
+
+    @Override
+    public void updateTimelinesBatch(List<User> users, Tweet tweet) {
+        users.stream()
+                .filter(mentionedUser -> !tweet.getUser().equals(mentionedUser))
+                .forEach(mentionedUser -> {
+                    Timeline timeline = find(mentionedUser);
+                    timeline.put(tweet);
+                    timelineRepository.update(timeline);
+                });
     }
 }

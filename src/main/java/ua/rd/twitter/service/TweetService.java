@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface TweetService {
     void save(Tweet tweet);
+    void saveAndProcessMentions(Tweet tweet);
     Iterable<Tweet> findAll();
     Iterable<Tweet> find(User user);
     Optional<Tweet> find(Long id);

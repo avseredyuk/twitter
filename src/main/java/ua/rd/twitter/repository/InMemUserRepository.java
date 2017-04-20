@@ -7,6 +7,9 @@ import ua.rd.twitter.domain.User;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * Created by Anton_Serediuk on 4/14/2017.
@@ -31,6 +34,13 @@ public class InMemUserRepository implements UserRepository {
     @Override
     public Iterable<User> findAll() {
         return new ArrayList<>(users);
+    }
+
+    @Override
+    public List<User> findAllByUsernameList(List<String> userNames) {
+        return userNames.stream()
+                .map(this::find)
+                .collect(Collectors.toList());
     }
 
     @Override

@@ -6,27 +6,26 @@ import org.springframework.stereotype.Service;
 import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
-import ua.rd.twitter.repository.TimelineRepository;
 import ua.rd.twitter.repository.TweetRepository;
-import ua.rd.twitter.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @Service("tweetService")
 public class SimpleTweetService implements TweetService {
     private final TweetRepository tweetRepository;
-    private final UserRepository userRepository;
-    private final TimelineRepository timelineRepository;
+    private final UserService userService;
+    private final TimelineService timelineService;
 
     @Autowired
-    public SimpleTweetService(TweetRepository tweetRepository, UserRepository userRepository, TimelineRepository timelineRepository) {
+    public SimpleTweetService(TweetRepository tweetRepository, UserService userService, TimelineService timelineService) {
         this.tweetRepository = tweetRepository;
-        this.userRepository = userRepository;
-        this.timelineRepository = timelineRepository;
+        this.userService = userService;
+        this.timelineService = timelineService;
     }
 
     @Override
@@ -40,7 +39,13 @@ public class SimpleTweetService implements TweetService {
     @Override
     public void save(Tweet tweet) {
         tweetRepository.save(tweet);
-        checkMentions(tweet);
+        timelineService.find(tweet.getUser()).put(tweet);
+    }
+
+    @Override
+    public void saveAndProcessMentions(Tweet tweet) {
+        save(tweet);
+        processMentions(tweet);
     }
 
     @Override
@@ -68,22 +73,24 @@ public class SimpleTweetService implements TweetService {
         tweetRepository.delete(tweet);
     }
 
-    //todo: refactor this trash
-    private void checkMentions(Tweet tweet) {
-        List<User> mentionedUsers = new ArrayList<>();
+    private void processMentions(Tweet tweet) {
+        List<String> mentionedUserNames = getMentionedUserNames(tweet);
+        List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
+
+        tweet.setMentionedUsers(mentionedUsers);
+
+        timelineService.updateTimelinesBatch(mentionedUsers, tweet);
+    }
+
+    private List<String> getMentionedUserNames(Tweet tweet) {
         String tweetText = tweet.getText();
+        List<String> mentionedUserNames = new ArrayList<>();
         Pattern pattern = Pattern.compile("@([\\w\\d]+)");
         Matcher matcher = pattern.matcher(tweetText);
         while (matcher.find()) {
             String userName = matcher.group(1);
-            User user = userRepository.find(userName);
-            mentionedUsers.add(user);
+            mentionedUserNames.add(userName);
         }
-        tweet.setMentionedUsers(mentionedUsers);
-        timelineRepository.find(tweet.getUser()).put(tweet);
-        for(User mentionedUser : mentionedUsers) {
-            Timeline timeline = timelineRepository.find(mentionedUser);
-            timeline.put(tweet);
-        }
+        return mentionedUserNames;
     }
 }

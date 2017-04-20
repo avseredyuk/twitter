@@ -39,6 +39,17 @@ public class InMemTimelineRepository implements TimelineRepository {
     }
 
     @Override
+    public void update(Timeline timeline) {
+        for (int i = 0; i < timelines.size(); i++) {
+            Timeline t = timelines.get(i);
+            if (t.getId().equals(timeline.getId())) {
+                timelines.set(i, timeline);
+                break;
+            }
+        }
+    }
+
+    @Override
     public Iterable<Timeline> findAll() {
         return new ArrayList<>(timelines);
     }
