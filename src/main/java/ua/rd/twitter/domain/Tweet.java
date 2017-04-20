@@ -10,6 +10,7 @@ public class Tweet {
     private List<User> likes = new ArrayList<>();
     private List<User> mentionedUsers = new ArrayList<>();
     private Long id;
+    private Tweet replyTo;
 
     public Tweet() {
     }
@@ -70,6 +71,14 @@ public class Tweet {
 
     public List<User> getMentionedUsers() {
         return new ArrayList<>(mentionedUsers);
+    }
+
+    public Tweet getReplyTo() {
+        return replyTo;
+    }
+
+    public void setReplyTo(Tweet replyTo) {
+        this.replyTo = replyTo;
     }
 
     @Override
