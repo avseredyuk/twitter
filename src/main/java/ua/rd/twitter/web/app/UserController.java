@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.UserService;
 
@@ -30,10 +31,9 @@ public class UserController {
     }
 
     @RequestMapping(value="/create", method=RequestMethod.POST)
-    public String createUser(User user) {
+    public ModelAndView createUser(User user) {
         userService.save(user);
-        //TODO fix redirect here
-        return "user/all";
+        return new ModelAndView("redirect:/web/user/all");
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
