@@ -36,6 +36,10 @@ public class Tweet {
         mentionedUsers.addAll(filteredUsers);
     }
 
+    public List<User> getLikeUsers() {
+        return new ArrayList<>(likes);
+    }
+
     public int getLikesCount() {
         return likes.size();
     }
