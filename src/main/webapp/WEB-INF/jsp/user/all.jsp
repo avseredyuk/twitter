@@ -19,7 +19,7 @@
             ${user.name}
         </td>
         <td width="15%">
-            <a href="${user.name}">
+            <a href="/twitter/web/timeline/${user.name}">
                 Timeline
             </a>
         </td>
