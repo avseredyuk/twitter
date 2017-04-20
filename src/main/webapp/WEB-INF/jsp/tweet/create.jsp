@@ -11,7 +11,7 @@
     <title>Create tweet</title>
 </head>
 <body>
-<h1>Create user</h1>
+<h1>Create tweet</h1>
 <form method="POST" action="create">
     Name: <input type="text" name="username"/>
     Text: <textarea name="text"></textarea>

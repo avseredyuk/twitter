@@ -26,6 +26,6 @@
     </tr>
 </c:forEach>
 </table>
-
+<a href="create">Create new user</a> | <a href="/twitter/web/tweet/all">All tweets</a>
 </body>
 </html>

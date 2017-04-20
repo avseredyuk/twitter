@@ -28,5 +28,6 @@
         </tr>
     </c:forEach>
 </table>
+<a href="create">Create new tweet</a>
 </body>
 </html>
