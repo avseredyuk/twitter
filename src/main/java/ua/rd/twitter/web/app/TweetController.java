@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
-import ua.rd.twitter.service.UserService;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class TweetController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView createTweet(@RequestParam("username") User user, String text) {
         Tweet tweet = tweetService.createTweet(text, user);
-        tweetService.saveAndProcessMentions(tweet);
+        tweetService.saveAndAddToMentionedTimelines(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
     }
 

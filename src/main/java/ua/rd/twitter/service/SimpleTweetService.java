@@ -3,7 +3,6 @@ package ua.rd.twitter.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
-import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TweetRepository;
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @Service("tweetService")
 public class SimpleTweetService implements TweetService {
@@ -43,9 +41,9 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public void saveAndProcessMentions(Tweet tweet) {
+    public void saveAndAddToMentionedTimelines(Tweet tweet) {
         save(tweet);
-        processMentions(tweet);
+        addToMentionedTimelines(tweet);
     }
 
     @Override
@@ -71,15 +69,14 @@ public class SimpleTweetService implements TweetService {
     @Override
     public void delete(Tweet tweet) {
         tweetRepository.delete(tweet);
+        deleteFromMentionedTimelines(tweet);
     }
 
-    private void processMentions(Tweet tweet) {
+    private void addToMentionedTimelines(Tweet tweet) {
         List<String> mentionedUserNames = getMentionedUserNames(tweet);
         List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
-
         tweet.setMentionedUsers(mentionedUsers);
-
-        timelineService.updateTimelinesBatch(mentionedUsers, tweet);
+        timelineService.addTweetToTimelinesBatch(mentionedUsers, tweet);
     }
 
     private List<String> getMentionedUserNames(Tweet tweet) {
@@ -92,5 +89,11 @@ public class SimpleTweetService implements TweetService {
             mentionedUserNames.add(userName);
         }
         return mentionedUserNames;
+    }
+
+    private void deleteFromMentionedTimelines(Tweet tweet) {
+        List<String> mentionedUserNames = getMentionedUserNames(tweet);
+        List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
+        timelineService.removeTweetFromTimelinesBatch(mentionedUsers, tweet);
     }
 }

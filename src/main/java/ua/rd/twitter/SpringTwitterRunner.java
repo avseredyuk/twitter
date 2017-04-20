@@ -40,8 +40,8 @@ public class SpringTwitterRunner {
        
         tweetService.findAll().forEach(System.out::println);
                
-        Tweet tweet = tweetService.createTweet("some text", null);
-        System.out.println(tweet);
+//        Tweet tweet = tweetService.createTweet("some text", null);
+//        System.out.println(tweet);
               
         repoContext.close();            
         serviceContext.close();

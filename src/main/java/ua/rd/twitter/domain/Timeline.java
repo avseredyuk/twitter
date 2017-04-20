@@ -34,4 +34,8 @@ public class Timeline {
     public Long getId() {
         return id;
     }
+
+    public void remove(Tweet tweet) {
+        tweets.remove(tweet);
+    }
 }

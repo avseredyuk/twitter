@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface TweetService {
     void save(Tweet tweet);
-    void saveAndProcessMentions(Tweet tweet);
+    void saveAndAddToMentionedTimelines(Tweet tweet);
     List<Tweet> findAll();
     List<Tweet> find(User user);
     Optional<Tweet> find(Long id);
