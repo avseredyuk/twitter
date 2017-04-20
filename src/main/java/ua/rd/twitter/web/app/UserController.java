@@ -3,9 +3,10 @@ package ua.rd.twitter.web.app;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ua.rd.twitter.domain.User;
-import ua.rd.twitter.service.TimelineService;
 import ua.rd.twitter.service.UserService;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -34,7 +36,7 @@ public class UserController {
         return "user/all";
     }
 
-    @RequestMapping("/all")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @GetMapping
     public String allUsers(Model model) {
         List<User> users = userService.findAll();

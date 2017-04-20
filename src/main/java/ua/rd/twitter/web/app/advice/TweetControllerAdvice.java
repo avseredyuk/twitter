@@ -1,22 +1,24 @@
-package ua.rd.twitter.web.app;
+package ua.rd.twitter.web.app.advice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 import ua.rd.twitter.service.UserService;
+import ua.rd.twitter.web.app.TimelineController;
+import ua.rd.twitter.web.app.TweetController;
+import ua.rd.twitter.web.app.UserController;
 
 import java.util.Optional;
 
 /**
  * Created by Anton_Serediuk on 4/19/2017.
  */
-@ControllerAdvice(assignableTypes = {TweetController.class})
+@ControllerAdvice(assignableTypes = {TweetController.class, UserController.class})
 public class TweetControllerAdvice {
     @Autowired
     private TweetService tweetService;

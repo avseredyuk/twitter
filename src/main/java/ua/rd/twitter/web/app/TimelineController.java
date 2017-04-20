@@ -15,24 +15,15 @@ import ua.rd.twitter.service.UserService;
 @Controller
 @RequestMapping("timeline")
 public class TimelineController {
-    private final TimelineService timelineService;
-    private final UserService userService;
 
-    @Autowired
-    public TimelineController(TimelineService timelineService, UserService userService) {
-        this.timelineService = timelineService;
-        this.userService = userService;
-    }
-
-    @RequestMapping("/{username}")
-    @GetMapping
-    public String userTimeline(@PathVariable("username") String username, Model model) {
-        User user = userService.find(username);
-        Timeline timeline = timelineService.find(user);
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
+    public String userTimeline(@PathVariable("username") Timeline timeline,
+                               @PathVariable("username") User user,
+                               Model model) {
         model.addAttribute("timeline", timeline);
         model.addAttribute("user", user);
         return "timeline";
-
     }
+
 
 }
