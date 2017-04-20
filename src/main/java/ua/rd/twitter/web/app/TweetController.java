@@ -51,11 +51,6 @@ public class TweetController {
                 .map(Tweet::toString).orElse("Eggog");
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public @ResponseBody String update(@RequestParam("id") Tweet tweet) {
-        return tweet.toString();
-    }
-
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public ModelAndView deleteTweet(@RequestParam("id") Tweet tweet) {
         tweetService.delete(tweet);
