@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserService {
     void save(User user);
     List<User> findAllByUsernameList(List<String> userNames);
-    Iterable<User> findAll();
+    List<User> findAll();
     User find(String name);
     User find(Long id);
 }

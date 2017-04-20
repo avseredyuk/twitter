@@ -11,6 +11,6 @@ public interface UserRepository {
     void save(User user);
     User find(String name);
     User find(Long id);
-    Iterable<User> findAll();
+    List<User> findAll();
     List<User> findAllByUsernameList(List<String> userNames);
 }

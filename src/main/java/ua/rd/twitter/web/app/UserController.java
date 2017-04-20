@@ -8,6 +8,8 @@ import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TimelineService;
 import ua.rd.twitter.service.UserService;
 
+import java.util.List;
+
 /**
  * Created by Anton_Serediuk on 4/14/2017.
  */
@@ -35,7 +37,7 @@ public class UserController {
     @RequestMapping("/all")
     @GetMapping
     public String allUsers(Model model) {
-        Iterable<User> users = userService.findAll();
+        List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "user/all";
     }

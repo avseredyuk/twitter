@@ -50,7 +50,7 @@ public class InMemTimelineRepository implements TimelineRepository {
     }
 
     @Override
-    public Iterable<Timeline> findAll() {
+    public List<Timeline> findAll() {
         return new ArrayList<>(timelines);
     }
 }

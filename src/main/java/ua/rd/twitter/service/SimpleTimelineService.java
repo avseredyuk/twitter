@@ -32,7 +32,7 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
-    public Iterable<Timeline> findAll() {
+    public List<Timeline> findAll() {
         return timelineRepository.findAll();
     }
 
@@ -48,7 +48,7 @@ public class SimpleTimelineService implements TimelineService{
                 .forEach(mentionedUser -> {
                     Timeline timeline = find(mentionedUser);
                     timeline.put(tweet);
-                    timelineRepository.update(timeline);
+                    update(timeline);
                 });
     }
 }

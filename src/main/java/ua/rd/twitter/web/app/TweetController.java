@@ -10,6 +10,8 @@ import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 import ua.rd.twitter.service.UserService;
 
+import java.util.List;
+
 /**
  *
  * @author andrii
@@ -29,7 +31,7 @@ public class TweetController {
     @RequestMapping("/all")
     @GetMapping
     public String allTweets(Model model) {
-        Iterable<Tweet> tweets = tweetService.findAll();
+        List<Tweet> tweets = tweetService.findAll();
         model.addAttribute("tweets", tweets);
         return "tweet/all";
     }

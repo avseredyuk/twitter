@@ -29,12 +29,12 @@ public class InMemTweetRepository implements TweetRepository  {
     }
     
     @Override
-    public Iterable<Tweet> findAll() {
+    public List<Tweet> findAll() {
         return new ArrayList(tweets);
     }
 
     @Override
-    public Iterable<Tweet> find(User user) {
+    public List<Tweet> find(User user) {
         return tweets.stream()
                 .filter(t -> t.getUser().getId().equals(user.getId()))
                 .collect(Collectors.toList());

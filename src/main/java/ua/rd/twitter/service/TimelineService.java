@@ -12,7 +12,7 @@ import java.util.List;
 public interface TimelineService {
     Timeline find(User user);
     void save(Timeline timeline);
-    Iterable<Timeline> findAll();
+    List<Timeline> findAll();
     void update(Timeline timeline);
     void updateTimelinesBatch(List<User> users, Tweet tweet);
 }

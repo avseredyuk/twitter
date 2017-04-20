@@ -49,7 +49,7 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public Iterable<Tweet> findAll() {
+    public List<Tweet> findAll() {
         return tweetRepository.findAll();
     }
 
@@ -59,7 +59,7 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public Iterable<Tweet> find(User user) {
+    public List<Tweet> find(User user) {
         return tweetRepository.find(user);
     }
 
