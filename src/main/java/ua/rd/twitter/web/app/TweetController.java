@@ -20,12 +20,10 @@ import java.util.List;
 @RequestMapping("/tweet")
 public class TweetController {
     private final TweetService tweetService;
-    private final UserService userService;
 
     @Autowired
-    public TweetController(TweetService tweetService, UserService userService) {
+    public TweetController(TweetService tweetService) {
         this.tweetService = tweetService;
-        this.userService = userService;
     }
 
     @RequestMapping("/all")
@@ -43,7 +41,6 @@ public class TweetController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView createTweet(@RequestParam("username") User user, String text) {
-//        User user = userService.find(userName);
         Tweet tweet = tweetService.createTweet(text, user);
         tweetService.saveAndProcessMentions(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
