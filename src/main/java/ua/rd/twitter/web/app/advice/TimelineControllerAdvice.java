@@ -16,10 +16,14 @@ import ua.rd.twitter.web.app.TimelineController;
  */
 @ControllerAdvice(assignableTypes = {TimelineController.class})
 public class TimelineControllerAdvice {
+    private final TimelineService timelineService;
+    private final UserService userService;
+
     @Autowired
-    TimelineService timelineService;
-    @Autowired
-    UserService userService;
+    public TimelineControllerAdvice(TimelineService timelineService, UserService userService) {
+        this.timelineService = timelineService;
+        this.userService = userService;
+    }
 
     @InitBinder
     public void tweetBinder(WebDataBinder binder) {

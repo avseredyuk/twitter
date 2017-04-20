@@ -20,10 +20,14 @@ import java.util.Optional;
  */
 @ControllerAdvice(assignableTypes = {TweetController.class, UserController.class})
 public class TweetControllerAdvice {
+    private final TweetService tweetService;
+    private final UserService userService;
+
     @Autowired
-    private TweetService tweetService;
-    @Autowired
-    private UserService userService;
+    public TweetControllerAdvice(TweetService tweetService, UserService userService) {
+        this.tweetService = tweetService;
+        this.userService = userService;
+    }
 
     @InitBinder
     public void tweetBinder(WebDataBinder binder) {
