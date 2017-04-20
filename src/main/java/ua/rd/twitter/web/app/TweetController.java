@@ -26,8 +26,7 @@ public class TweetController {
         this.tweetService = tweetService;
     }
 
-    @RequestMapping("/all")
-    @GetMapping
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String allTweets(Model model) {
         List<Tweet> tweets = tweetService.findAll();
         model.addAttribute("tweets", tweets);

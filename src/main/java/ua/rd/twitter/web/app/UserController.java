@@ -37,7 +37,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    @GetMapping
     public String allUsers(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
