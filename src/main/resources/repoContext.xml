@@ -11,16 +11,22 @@
     <context:component-scan base-package="ua.rd.twitter.repository"/>
 
     <bean name="user1" class="ua.rd.twitter.domain.User">
-        <constructor-arg index="0" value="vasya"/>
-        <constructor-arg index="1" value="14"/>
+        <constructor-arg index="0" value="vasya1024"/>
+        <constructor-arg index="1" value="Vasyliy"/>
+        <constructor-arg index="2" value="Vasyliev"/>
+        <constructor-arg index="3" value="14"/>
     </bean>
     <bean name="user2" class="ua.rd.twitter.domain.User">
-        <constructor-arg index="0" value="petya"/>
-        <constructor-arg index="1" value="16"/>
+        <constructor-arg index="0" value="petya_kiev"/>
+        <constructor-arg index="1" value="Petro"/>
+        <constructor-arg index="2" value="Petrov"/>
+        <constructor-arg index="3" value="16"/>
     </bean>
     <bean name="user3" class="ua.rd.twitter.domain.User">
-        <constructor-arg index="0" value="NY Times"/>
-        <constructor-arg index="1" value="18"/>
+        <constructor-arg index="0" value="NY_Times"/>
+        <constructor-arg index="1" value="NY"/>
+        <constructor-arg index="2" value="Times"/>
+        <constructor-arg index="3" value="18"/>
     </bean>
 
     <bean name="timeline1" class="ua.rd.twitter.domain.Timeline">

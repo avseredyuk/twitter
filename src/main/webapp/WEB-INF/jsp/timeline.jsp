@@ -2,6 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
+<head>
+    <title>
+        ${user.name}'s Timeline
+    </title>
+</head>
 <body>
 <h1>Login: ${user.name}</h1>
 <table width="100%">

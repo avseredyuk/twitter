@@ -13,7 +13,11 @@
 <body>
 <h1>Create user</h1>
 <form method="POST" action="create">
-    <jsp:include page="userForm.jsp" />
+    ID: <input type="text" name="id" value="${user.id}"><br/>
+    Name: <input type="text" name="name"><br/>
+    First name: <input type="text" name="firstName"><br/>
+    Last name: <input type="text" name="lastName"><br/>
+    <input type="submit" value="Edit"/>
 </form>
 </body>
 </html>
