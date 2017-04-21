@@ -145,6 +145,7 @@
         <constructor-arg index="0" ref="user3"/>
         <constructor-arg index="1" value="What you need to know about the French election http://nyti.ms/2pK1fFw "/>
         <constructor-arg index="2" value="7"/>
+        <property name="retweetsCount" value="1"/>
     </bean>
     <bean name="tweet9" class="ua.rd.twitter.domain.Tweet">
         <constructor-arg index="0" ref="user3"/>
@@ -155,6 +156,7 @@
         <constructor-arg index="0" ref="user3"/>
         <constructor-arg index="1" value="Iceberg chasers: People who flock to Labrador and Newfoundland hoping to see huge chunks of broken glacier http://nyti.ms/2pYpzCU"/>
         <constructor-arg index="2" value="9"/>
+        <property name="retweetsCount" value="1"/>
     </bean>
        
 </beans>

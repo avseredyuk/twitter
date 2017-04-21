@@ -12,6 +12,7 @@ public class Tweet {
     private Long id;
     private Tweet replyTo;
     private Tweet retweetOf;
+    private Integer retweetsCount = 0;
 
     public Tweet() {
     }
@@ -88,6 +89,14 @@ public class Tweet {
 
     public void setRetweetOf(Tweet retweetOf) {
         this.retweetOf = retweetOf;
+    }
+
+    public Integer getRetweetsCount() {
+        return retweetsCount;
+    }
+
+    public void setRetweetsCount(Integer retweetsCount) {
+        this.retweetsCount = retweetsCount;
     }
 
     @Override

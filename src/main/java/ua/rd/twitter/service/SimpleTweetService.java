@@ -36,6 +36,7 @@ public class SimpleTweetService implements TweetService {
         }
         if (retweetTweet != null) {
             newTweet.setRetweetOf(retweetTweet);
+            retweetTweet.setRetweetsCount(retweetTweet.getRetweetsCount() + 1);
         }
         return newTweet;
     }
