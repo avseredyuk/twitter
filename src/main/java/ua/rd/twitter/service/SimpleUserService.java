@@ -25,6 +25,11 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
+    public void edit(User user) {
+        userRepository.edit(user);
+    }
+
+    @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }

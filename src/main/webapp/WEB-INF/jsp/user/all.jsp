@@ -15,12 +15,17 @@
         <td width="15%">
             ${user.id}
         </td>
-        <td width="70%">
+        <td width="55%">
             ${user.name}
         </td>
         <td width="15%">
             <a href="/twitter/web/timeline/${user.name}">
                 Timeline
+            </a>
+        </td>
+        <td>
+            <a href="/twitter/web/user/${user.name}/edit">
+                Edit
             </a>
         </td>
     </tr>

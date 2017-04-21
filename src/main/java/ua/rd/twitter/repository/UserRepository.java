@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface UserRepository {
     void save(User user);
+    void edit(User user);
     User find(String name);
     User find(Long id);
     List<User> findAll();

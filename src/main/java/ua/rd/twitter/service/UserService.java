@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface UserService {
     void save(User user);
+    void edit(User user);
     List<User> findAllByUsernameList(List<String> userNames);
     List<User> findAll();
     User find(String name);

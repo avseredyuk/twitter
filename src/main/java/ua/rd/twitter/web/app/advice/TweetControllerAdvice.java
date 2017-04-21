@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * Created by Anton_Serediuk on 4/19/2017.
  */
-@ControllerAdvice(assignableTypes = {TweetController.class})
+@ControllerAdvice(assignableTypes = {TweetController.class, UserController.class})
 public class TweetControllerAdvice {
     private final TweetService tweetService;
     private final UserService userService;
