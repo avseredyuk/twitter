@@ -5,12 +5,15 @@ import java.util.List;
 
 
 public class Timeline {
-    private final List<Tweet> tweets;
-    private final User user;
-    private final Long id;
+    private List<Tweet> tweets = new ArrayList<>();
+    private User user;
+    private Long id;
+
+    public Timeline() {
+    }
 
     public Timeline(List<Tweet> tweets, User user, Long id) {
-        this.tweets = tweets;
+        this.tweets.addAll(tweets);
         this.user = user;
         this.id = id;
     }
@@ -33,6 +36,18 @@ public class Timeline {
 
     public Long getId() {
         return id;
+    }
+
+    public void setTweets(List<Tweet> tweets) {
+        this.tweets = tweets;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void remove(Tweet tweet) {

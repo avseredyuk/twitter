@@ -1,6 +1,7 @@
 package ua.rd.twitter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
@@ -19,6 +20,19 @@ public class SimpleTimelineService implements TimelineService{
     @Autowired
     public SimpleTimelineService(TimelineRepository timelineRepository) {
         this.timelineRepository = timelineRepository;
+    }
+
+    @Override
+    public Timeline create(User user) {
+        Timeline newTimeline = createEmptyTimeline();
+        newTimeline.setUser(user);
+        save(newTimeline);
+        return newTimeline;
+    }
+
+    @Lookup("timeline")
+    public Timeline createEmptyTimeline() {
+        return null;
     }
 
     @Override

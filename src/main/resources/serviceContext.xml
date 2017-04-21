@@ -11,5 +11,7 @@
      <context:component-scan base-package="ua.rd.twitter.service"/>
 
      <bean name="tweet" class="ua.rd.twitter.domain.Tweet" scope="prototype"/>
+
+     <bean name="timeline" class="ua.rd.twitter.domain.Timeline" scope="prototype"/>
     
 </beans>

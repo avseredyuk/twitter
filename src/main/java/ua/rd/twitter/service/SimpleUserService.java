@@ -1,7 +1,9 @@
 package ua.rd.twitter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
+import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.UserRepository;
 
@@ -13,15 +15,18 @@ import java.util.List;
 @Service("userService")
 public class SimpleUserService implements UserService {
     private final UserRepository userRepository;
+    private final TimelineService timelineService;
 
     @Autowired
-    public SimpleUserService(UserRepository userRepository) {
+    public SimpleUserService(UserRepository userRepository, TimelineService timelineService) {
         this.userRepository = userRepository;
+        this.timelineService = timelineService;
     }
 
     @Override
     public void save(User user) {
         userRepository.save(user);
+        timelineService.create(user);
     }
 
     @Override

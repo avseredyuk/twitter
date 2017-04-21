@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface TimelineService {
     Timeline find(User user);
+    Timeline create(User user);
     void save(Timeline timeline);
     List<Timeline> findAll();
     void update(Timeline timeline);
