@@ -35,9 +35,13 @@ public class TweetControllerAdvice {
                 new PropertiesEditor() {
                     @Override
                     public void setAsText(String text) throws IllegalArgumentException {
-                        Long id = Long.valueOf(text);
-                        Optional<Tweet> tweet = tweetService.find(id);
-                        setValue(tweet.orElse(null));
+                        try {
+                            Long id = Long.valueOf(text);
+                            Optional<Tweet> tweet = tweetService.find(id);
+                            setValue(tweet.orElse(null));
+                        } catch (NumberFormatException e) {
+                            //todo: log
+                        }
                     }
                 });
     }

@@ -10,6 +10,7 @@ import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -38,8 +39,10 @@ public class TweetController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView createTweet(@RequestParam("username") User user, String text) {
-        Tweet tweet = tweetService.createTweet(text, user);
+    public ModelAndView createTweet(@RequestParam("username") User user,
+                                    String text,
+                                    @RequestParam(value = "replyId", required = false) Tweet replyToTweet) {
+        Tweet tweet = tweetService.createTweet(text, user, replyToTweet);
         tweetService.saveAndAddToMentionedTimelines(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
     }
@@ -47,7 +50,8 @@ public class TweetController {
     @RequestMapping(value = "/tweet", method = RequestMethod.GET)
     public @ResponseBody String tweetById(@RequestParam("id") Long id) {
         return tweetService.find(id)
-                .map(Tweet::toString).orElse("Eggog");
+                .map(Tweet::toString)
+                .orElse("Eggog");
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

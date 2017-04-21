@@ -27,10 +27,13 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public Tweet createTweet(String text, User user) {
+    public Tweet createTweet(String text, User user, Tweet replyToTweet) {
         Tweet newTweet = createEmptyTweet();
         newTweet.setText(text);
         newTweet.setUser(user);
+        if (replyToTweet != null) {
+            newTweet.setReplyTo(replyToTweet);
+        }
         return newTweet;
     }
 

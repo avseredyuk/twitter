@@ -6,17 +6,23 @@
 <h1>Global feed</h1>
 <table width="100%">
     <c:forEach var="tweet" items="${tweets}">
+        <c:if test="${not empty tweet.replyTo}">
+            <tr>
+                <td colspan="3" bgcolor="#a9a9a9">
+                    Is reply to Tweet #${tweet.replyTo.id}
+                </td>
+            </tr>
+        </c:if>
         <tr>
-            <td colspan="3">
-                <hr/>
+            <td colspan="3" bgcolor="#ffebcd">
                     ${tweet.text}
             </td>
         </tr>
         <tr>
-            <td width="15%">
+            <td width="15%" bgcolor="#f5f5dc">
                 <b>${tweet.user.name}</b>
             </td>
-            <td width="60%">
+            <td width="60%" bgcolor="#f0ffff">
                 Likes: ${tweet.likesCount}
             </td>
             <td width="15%">
@@ -26,6 +32,7 @@
                 </form>
             </td>
         </tr>
+        <tr><td></td></tr>
     </c:forEach>
 </table>
 <a href="create">Create new tweet</a>

@@ -13,8 +13,9 @@
 <body>
 <h1>Create tweet</h1>
 <form method="POST" action="create">
-    Name: <input type="text" name="username"/>
-    Text: <textarea name="text"></textarea>
+    Name: <input type="text" name="username"/><br/>
+    Text: <textarea name="text"></textarea><br/>
+    Reply to tweet: <input type="text" name="replyId"/><br/>
     <input type="submit" value="Create"/>
 </form>
 </body>
