@@ -41,12 +41,8 @@ public class SimpleTweetService implements TweetService {
     public void save(Tweet tweet) {
         tweetRepository.save(tweet);
         timelineService.find(tweet.getUser()).put(tweet);
-    }
-
-    @Override
-    public void saveAndAddToMentionedTimelines(Tweet tweet) {
-        save(tweet);
         addToMentionedTimelines(tweet);
+        addToRepliedTweetTimeline(tweet);
     }
 
     @Override
@@ -73,6 +69,14 @@ public class SimpleTweetService implements TweetService {
     public void delete(Tweet tweet) {
         tweetRepository.delete(tweet);
         deleteFromMentionedTimelines(tweet);
+    }
+
+    private void addToRepliedTweetTimeline(Tweet tweet) {
+        Tweet replyToTweet = tweet.getReplyTo();
+        if (replyToTweet != null) {
+            User repliedUser = replyToTweet.getUser();
+            timelineService.addTweetToTimeline(repliedUser, tweet);
+        }
     }
 
     private void addToMentionedTimelines(Tweet tweet) {

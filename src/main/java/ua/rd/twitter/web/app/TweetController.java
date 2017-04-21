@@ -43,7 +43,7 @@ public class TweetController {
                                     String text,
                                     @RequestParam(value = "replyId", required = false) Tweet replyToTweet) {
         Tweet tweet = tweetService.createTweet(text, user, replyToTweet);
-        tweetService.saveAndAddToMentionedTimelines(tweet);
+        tweetService.save(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
     }
 

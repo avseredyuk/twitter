@@ -42,14 +42,19 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
+    public void addTweetToTimeline(User user, Tweet tweet) {
+        Timeline timeline = find(user);
+        timeline.put(tweet);
+        update(timeline);
+    }
+
+    @Override
     public void addTweetToTimelinesBatch(List<User> users, Tweet tweet) {
         users.stream()
                 .filter(mentionedUser -> !tweet.getUser().equals(mentionedUser))
-                .forEach(mentionedUser -> {
-                    Timeline timeline = find(mentionedUser);
-                    timeline.put(tweet);
-                    update(timeline);
-                });
+                .forEach(mentionedUser ->
+                        addTweetToTimeline(mentionedUser, tweet)
+                );
     }
 
     @Override
