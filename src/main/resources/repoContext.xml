@@ -14,10 +14,13 @@
         <constructor-arg index="0" value="vasya"/>
         <constructor-arg index="1" value="14"/>
     </bean>
-
     <bean name="user2" class="ua.rd.twitter.domain.User">
         <constructor-arg index="0" value="petya"/>
         <constructor-arg index="1" value="16"/>
+    </bean>
+    <bean name="user3" class="ua.rd.twitter.domain.User">
+        <constructor-arg index="0" value="NY Times"/>
+        <constructor-arg index="1" value="18"/>
     </bean>
 
     <bean name="timeline1" class="ua.rd.twitter.domain.Timeline">
@@ -25,11 +28,15 @@
         <constructor-arg index="1" ref="user1"/>
         <constructor-arg index="2" value="0"/>
     </bean>
-
     <bean name="timeline2" class="ua.rd.twitter.domain.Timeline">
         <constructor-arg index="0" ref="timeline2tweets"/>
         <constructor-arg index="1" ref="user2"/>
         <constructor-arg index="2" value="1"/>
+    </bean>
+    <bean name="timeline3" class="ua.rd.twitter.domain.Timeline">
+        <constructor-arg index="0" ref="timeline3tweets"/>
+        <constructor-arg index="1" ref="user3"/>
+        <constructor-arg index="2" value="2"/>
     </bean>
 
     <bean id="testTimelines" class="java.util.ArrayList">
@@ -37,19 +44,29 @@
             <list>
                 <ref bean="timeline1"/>
                 <ref bean="timeline2"/>
+                <ref bean="timeline3"/>
             </list>
         </constructor-arg>
     </bean>
-
     <bean id="testUsers" class="java.util.ArrayList">
         <constructor-arg>
             <list>
                 <ref bean="user1"/>
                 <ref bean="user2"/>
+                <ref bean="user3"/>
             </list>
         </constructor-arg>
     </bean>
-
+    <bean id="timeline1tweets" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="tweet1"/>
+                <ref bean="tweet2"/>
+                <ref bean="tweet3"/>
+                <ref bean="tweet7"/>
+            </list>
+        </constructor-arg>
+    </bean>
     <bean id="timeline2tweets" class="java.util.ArrayList">
         <constructor-arg>
             <list>
@@ -59,17 +76,15 @@
             </list>
         </constructor-arg>
     </bean>
-
-    <bean id="timeline1tweets" class="java.util.ArrayList">
+    <bean id="timeline3tweets" class="java.util.ArrayList">
         <constructor-arg>
             <list>
-                <ref bean="tweet1"/>
-                <ref bean="tweet2"/>
-                <ref bean="tweet3"/>
+                <ref bean="tweet8"/>
+                <ref bean="tweet9"/>
+                <ref bean="tweet10"/>
             </list>
         </constructor-arg>
     </bean>
-
     <bean id="testTweets" class="java.util.ArrayList">
         <constructor-arg>
             <list>
@@ -79,6 +94,10 @@
                 <ref bean="tweet4"/>
                 <ref bean="tweet5"/>
                 <ref bean="tweet6"/>
+                <ref bean="tweet7"/>
+                <ref bean="tweet8"/>
+                <ref bean="tweet9"/>
+                <ref bean="tweet10"/>
             </list>
         </constructor-arg>
     </bean>
@@ -97,11 +116,13 @@
         <constructor-arg index="0" ref="user1"/>
         <constructor-arg index="1" value="Vasyliy made 3 tweets"/>
         <constructor-arg index="2" value="2"/>
+        <property name="retweetOf" ref="tweet10"/>
     </bean>
     <bean name="tweet4" class="ua.rd.twitter.domain.Tweet">
         <constructor-arg index="0" ref="user2"/>
-        <constructor-arg index="1" value="Well I'm Petro"/>
+        <constructor-arg index="1" value="Hello to you, Vasylyi. How is your day?"/>
         <constructor-arg index="2" value="3"/>
+        <property name="replyTo" ref="tweet1"/>
     </bean>
     <bean name="tweet5" class="ua.rd.twitter.domain.Tweet">
         <constructor-arg index="0" ref="user2"/>
@@ -110,8 +131,30 @@
     </bean>
     <bean name="tweet6" class="ua.rd.twitter.domain.Tweet">
         <constructor-arg index="0" ref="user2"/>
-        <constructor-arg index="1" value="repost iz instagrama"/>
+        <constructor-arg index="1" value=""/>
         <constructor-arg index="2" value="5"/>
+        <property name="retweetOf" ref="tweet8"/>
+    </bean>
+    <bean name="tweet7" class="ua.rd.twitter.domain.Tweet">
+        <constructor-arg index="0" ref="user1"/>
+        <constructor-arg index="1" value="Thanks, fine. What about you?"/>
+        <constructor-arg index="2" value="6"/>
+        <property name="replyTo" ref="tweet4"/>
+    </bean>
+    <bean name="tweet8" class="ua.rd.twitter.domain.Tweet">
+        <constructor-arg index="0" ref="user3"/>
+        <constructor-arg index="1" value="What you need to know about the French election http://nyti.ms/2pK1fFw "/>
+        <constructor-arg index="2" value="7"/>
+    </bean>
+    <bean name="tweet9" class="ua.rd.twitter.domain.Tweet">
+        <constructor-arg index="0" ref="user3"/>
+        <constructor-arg index="1" value="An Egyptian-American aid worker leaves Egypt after Trump officials negotiated her release"/>
+        <constructor-arg index="2" value="8"/>
+    </bean>
+    <bean name="tweet10" class="ua.rd.twitter.domain.Tweet">
+        <constructor-arg index="0" ref="user3"/>
+        <constructor-arg index="1" value="Iceberg chasers: People who flock to Labrador and Newfoundland hoping to see huge chunks of broken glacier http://nyti.ms/2pYpzCU"/>
+        <constructor-arg index="2" value="9"/>
     </bean>
        
 </beans>
