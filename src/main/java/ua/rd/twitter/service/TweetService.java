@@ -11,6 +11,6 @@ public interface TweetService {
     List<Tweet> findAll();
     List<Tweet> find(User user);
     Optional<Tweet> find(Long id);
-    Tweet createTweet(String text, User user, Tweet replyToTweet);
+    Tweet createTweet(String text, User user, Tweet replyToTweet, Tweet retweetTweet);
     void delete(Tweet tweet);
 }

@@ -16,6 +16,7 @@
     Name: <input type="text" name="username"/><br/>
     Text: <textarea name="text"></textarea><br/>
     Reply to tweet: <input type="text" name="replyId"/><br/>
+    Retweet of: <input type="text" name="retweetId"/><br/>
     <input type="submit" value="Create"/>
 </form>
 </body>

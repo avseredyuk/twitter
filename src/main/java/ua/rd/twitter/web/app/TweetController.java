@@ -3,14 +3,16 @@ package ua.rd.twitter.web.app;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.TweetService;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
@@ -39,10 +41,11 @@ public class TweetController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView createTweet(@RequestParam("username") User user,
-                                    String text,
-                                    @RequestParam(value = "replyId", required = false) Tweet replyToTweet) {
-        Tweet tweet = tweetService.createTweet(text, user, replyToTweet);
+    public ModelAndView createTweet(String text,
+                                    @RequestParam("username") User user,
+                                    @RequestParam(value = "replyId", required = false) Tweet replyToTweet,
+                                    @RequestParam(value = "retweetId", required = false) Tweet retweetTweet) {
+        Tweet tweet = tweetService.createTweet(text, user, replyToTweet, retweetTweet);
         tweetService.save(tweet);
         return new ModelAndView("redirect:/web/tweet/all");
     }

@@ -4,6 +4,7 @@
 <html>
 <body>
 <h1>Global feed</h1>
+<a href="create">Create new tweet</a>
 <table width="100%">
     <c:forEach var="tweet" items="${tweets}">
         <c:if test="${not empty tweet.replyTo}">
@@ -12,6 +13,14 @@
                     Is reply to Tweet #${tweet.replyTo.id}
                 </td>
             </tr>
+        </c:if>
+        <c:if test="${not empty tweet.retweetOf}">
+            <tr>
+                <td colspan="3" bgcolor="#a9a9a9">
+                    It's retweet
+                </td>
+            </tr>
+            <c:set var="tweet" scope="page" value="${tweet.retweetOf}"/>
         </c:if>
         <tr>
             <td colspan="3" bgcolor="#ffebcd">
@@ -35,6 +44,5 @@
         <tr><td></td></tr>
     </c:forEach>
 </table>
-<a href="create">Create new tweet</a>
 </body>
 </html>

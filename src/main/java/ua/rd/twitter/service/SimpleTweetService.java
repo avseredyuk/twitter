@@ -27,12 +27,15 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
-    public Tweet createTweet(String text, User user, Tweet replyToTweet) {
+    public Tweet createTweet(String text, User user, Tweet replyToTweet, Tweet retweetTweet) {
         Tweet newTweet = createEmptyTweet();
         newTweet.setText(text);
         newTweet.setUser(user);
         if (replyToTweet != null) {
             newTweet.setReplyTo(replyToTweet);
+        }
+        if (retweetTweet != null) {
+            newTweet.setRetweetOf(retweetTweet);
         }
         return newTweet;
     }

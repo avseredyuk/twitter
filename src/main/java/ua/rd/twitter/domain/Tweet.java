@@ -11,6 +11,7 @@ public class Tweet {
     private List<User> mentionedUsers = new ArrayList<>();
     private Long id;
     private Tweet replyTo;
+    private Tweet retweetOf;
 
     public Tweet() {
     }
@@ -79,6 +80,14 @@ public class Tweet {
 
     public void setReplyTo(Tweet replyTo) {
         this.replyTo = replyTo;
+    }
+
+    public Tweet getRetweetOf() {
+        return retweetOf;
+    }
+
+    public void setRetweetOf(Tweet retweetOf) {
+        this.retweetOf = retweetOf;
     }
 
     @Override
