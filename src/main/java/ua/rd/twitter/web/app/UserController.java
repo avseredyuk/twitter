@@ -1,6 +1,7 @@
 package ua.rd.twitter.web.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public String allUsers(Model model) {
+//        throw new UnsupportedOperationException("SHIET");
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
+        return "user/all";
+    }
+
     @RequestMapping(value="/create", method=RequestMethod.GET)
     public String showCreateUser() {
         return "user/create";
@@ -35,13 +44,6 @@ public class UserController {
         return new ModelAndView("redirect:/web/user/all");
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String allUsers(Model model) {
-        List<User> users = userService.findAll();
-        model.addAttribute("users", users);
-        return "user/all";
-    }
-
     @RequestMapping(value = "/{username}/edit", method = RequestMethod.GET)
     public String showEditUser(@PathVariable("username") User user, Model model) {
         model.addAttribute("user", user);
@@ -49,9 +51,16 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{username}/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute User user) {
+    public ModelAndView editUser(User user) {
         userService.edit(user);
         return new ModelAndView("redirect:/web/user/all");
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = UnsupportedOperationException.class)
+    public String onException(Exception e, Model model) {
+        model.addAttribute("error", e);
+        return "error";
     }
 
 }

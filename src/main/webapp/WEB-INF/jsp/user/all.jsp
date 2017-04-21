@@ -15,8 +15,14 @@
         <td width="15%">
             ${user.id}
         </td>
-        <td width="55%">
+        <td width="15%">
             ${user.name}
+        </td>
+        <td width="20%">
+                ${user.firstName}
+        </td>
+        <td width="20%">
+                ${user.lastName}
         </td>
         <td width="15%">
             <a href="/twitter/web/timeline/${user.name}">

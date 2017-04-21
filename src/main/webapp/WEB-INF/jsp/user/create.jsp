@@ -17,7 +17,7 @@
     Name: <input type="text" name="name"><br/>
     First name: <input type="text" name="firstName"><br/>
     Last name: <input type="text" name="lastName"><br/>
-    <input type="submit" value="Edit"/>
+    <input type="submit" value="Create"/>
 </form>
 </body>
 </html>
