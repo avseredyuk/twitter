@@ -14,10 +14,6 @@ import ua.rd.twitter.service.TweetService;
 
 import java.util.List;
 
-/**
- *
- * @author andrii
- */
 @Controller
 @RequestMapping("/tweet")
 public class TweetController {

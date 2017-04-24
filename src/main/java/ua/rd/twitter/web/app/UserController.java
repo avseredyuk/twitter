@@ -27,7 +27,6 @@ public class UserController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String allUsers(Model model) {
-//        throw new UnsupportedOperationException("SHIET");
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "user/all";
