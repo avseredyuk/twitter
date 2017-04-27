@@ -45,8 +45,5 @@ public class RestTweetController {
         tweetService.save(tweet);
         return tweet;
     }
-
-    //// TODO: 4/24/2017 find by id
-    //// TODO: 4/24/2017 create new user by data
 }
 
