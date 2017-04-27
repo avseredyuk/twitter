@@ -30,7 +30,7 @@ public class InMemTweetRepository implements TweetRepository  {
     
     @Override
     public List<Tweet> findAll() {
-        return new ArrayList(tweets);
+        return new ArrayList<>(tweets);
     }
 
     @Override
