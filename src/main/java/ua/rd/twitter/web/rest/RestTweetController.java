@@ -40,36 +40,17 @@ public class RestTweetController {
     @RequestMapping(
             value = "/tweet/{tweetId}",
             method = RequestMethod.GET)
-    public Tweet getTweetById(@PathVariable("tweetId") Long id) {
-        return tweetService.find(id).get();
+    public Tweet getTweetById(@PathVariable("tweetId") Tweet tweet) {
+        return tweet;
     }
 
     @RequestMapping(
             value = "/tweet",
             method = RequestMethod.POST,
             consumes = "application/json")
-    public ResponseEntity<Tweet> newTweet(@RequestBody Tweet tweet) {
+    public Tweet newTweet(@RequestBody Tweet tweet) {
         tweetService.save(tweet);
-        Link link = linkTo(methodOn(RestTweetController.class).getTweetById(tweet.getIdd())).withSelfRel();
-        tweet.add(link);
-
-        return new ResponseEntity<>(tweet, HttpStatus.CREATED);
+        return tweet;
     }
-
-//    @RequestMapping(
-//            value = "/tweet",
-//            method = RequestMethod.POST,
-//            consumes = "application/json")
-//    public ResponseEntity<Void> newTweet(@RequestBody Tweet tweet,
-//                                         UriComponentsBuilder builder) {
-//        tweetService.save(tweet);
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setLocation(
-//                builder.path("/tweet/{tweetID}")
-//                        .buildAndExpand(tweet.getId()).toUri());
-//
-//        return new ResponseEntity<>(headers, HttpStatus.CREATED);
-//    }
 }
 

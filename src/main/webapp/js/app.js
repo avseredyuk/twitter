@@ -23,7 +23,7 @@ sampleApp.config(['$routeProvider',
     }]);
 
 sampleApp.controller('ShowTimelineController', function($scope, $http, $routeParams) {
-    var url = "http://localhost:9999/twitter/rest/timeline/" + $routeParams.userName;
+    var url = "/twitter/rest/timeline/" + $routeParams.userName;
     $http({
         url: url,
         method: 'GET'
@@ -33,7 +33,7 @@ sampleApp.controller('ShowTimelineController', function($scope, $http, $routePar
 });
 
 sampleApp.controller('ShowUsersController', function($scope, $http) {
-    var url = "http://localhost:9999/twitter/rest/user/all";
+    var url = "/twitter/rest/user/all";
     $http({
         url: url,
         method: 'GET'
@@ -43,7 +43,7 @@ sampleApp.controller('ShowUsersController', function($scope, $http) {
 });
 
 sampleApp.controller('ShowTweetsController', function($scope, $http) {
-    var url = "http://localhost:9999/twitter/rest/tweet/all";
+    var url = "/twitter/rest/tweet/all";
     $http({
         url: url,
         method: 'GET'
