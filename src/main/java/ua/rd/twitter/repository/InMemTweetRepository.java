@@ -27,7 +27,7 @@ public class InMemTweetRepository implements TweetRepository  {
     public void save(Tweet tweet) {
         int index = tweets.size();
         tweets.add(tweet);
-        tweet.setId((long) index);
+        tweet.setIdd((long) index);
     }
     
     @Override
@@ -44,7 +44,7 @@ public class InMemTweetRepository implements TweetRepository  {
 
     @Override
     public void delete(Tweet tweet) {
-        tweets.remove((int) tweet.getId().longValue());
+        tweets.remove((int) tweet.getIdd().longValue());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class InMemTweetRepository implements TweetRepository  {
         Optional<Tweet> tweet;
         try {
             tweet = tweets.stream()
-                    .filter(t -> t.getId().equals(id))
+                    .filter(t -> t.getIdd().equals(id))
                     .findFirst();
         } catch (IndexOutOfBoundsException e) {
             tweet = Optional.empty();

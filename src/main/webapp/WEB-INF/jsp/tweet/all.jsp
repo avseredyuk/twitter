@@ -15,7 +15,7 @@
         <c:if test="${not empty tweet.replyTo}">
             <tr>
                 <td colspan="4" bgcolor="#a9a9a9">
-                    Is reply to Tweet #${tweet.replyTo.id}
+                    Is reply to Tweet #${tweet.replyTo.idd}
                 </td>
             </tr>
         </c:if>
@@ -44,7 +44,7 @@
             </td>
             <td width="15%">
                 <form method="post" action="delete">
-                    <input type="hidden" name="id" value="${tweet.id}">
+                    <input type="hidden" name="idd" value="${tweet.idd}">
                     <input type="submit" value="Delete"/>
                 </form>
             </td>

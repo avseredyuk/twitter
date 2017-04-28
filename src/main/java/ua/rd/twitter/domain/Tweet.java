@@ -1,15 +1,17 @@
 package ua.rd.twitter.domain;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Tweet {
+public class Tweet extends ResourceSupport{
     private User user;
     private String text;
     private List<User> likes = new ArrayList<>();
     private List<User> mentionedUsers = new ArrayList<>();
-    private Long id;
+    private Long idd;
     private Tweet replyTo;
     private Tweet retweetOf;
     private Integer retweetsCount = 0;
@@ -17,14 +19,14 @@ public class Tweet {
     public Tweet() {
     }
 
-    public Tweet(Long id) {
-        this.id = id;
+    public Tweet(Long idd) {
+        this.idd = idd;
     }
 
-    public Tweet(User user, String text, Long id) {
+    public Tweet(User user, String text, Long idd) {
         this.user = user;
         this.text = text;
-        this.id = id;
+        this.idd = idd;
     }
 
     public void like(User user) {
@@ -63,12 +65,12 @@ public class Tweet {
         this.text = text;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdd() {
+        return idd;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdd(Long idd) {
+        this.idd = idd;
     }
 
     public List<User> getMentionedUsers() {
@@ -106,7 +108,7 @@ public class Tweet {
                 ", text='" + text + '\'' +
                 ", likes=" + likes +
                 ", mentionedUsers=" + mentionedUsers +
-                ", id=" + id +
+                ", idd=" + idd +
                 '}';
     }
 }

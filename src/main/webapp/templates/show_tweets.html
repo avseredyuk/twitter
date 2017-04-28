@@ -1,0 +1,17 @@
+<link rel="stylesheet" property="stylesheet" href="css/show_tweets.css">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Text</th>
+        <th>Likes count</th>
+        <th>Retweets count</th>
+    </tr>
+    <tr ng-repeat="tweet in tweets">
+        <td>{{ tweet.idd }}</td>
+        <td>{{ tweet.user.name }}</td>
+        <td>{{ tweet.text }}</td>
+        <td>{{ tweet.likesCount }}</td>
+        <td>{{ tweet.retweetsCount }}</td>
+    </tr>
+</table>

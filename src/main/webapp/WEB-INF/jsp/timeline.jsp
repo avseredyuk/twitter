@@ -14,7 +14,7 @@
         <c:if test="${not empty tweet.replyTo}">
             <tr>
                 <td colspan="4" bgcolor="#a9a9a9">
-                    Is reply to Tweet #${tweet.replyTo.id}
+                    Is reply to Tweet #${tweet.replyTo.idd}
                 </td>
             </tr>
         </c:if>
