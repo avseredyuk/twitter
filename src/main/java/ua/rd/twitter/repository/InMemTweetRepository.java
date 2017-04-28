@@ -25,7 +25,9 @@ public class InMemTweetRepository implements TweetRepository  {
     
     @Override
     public void save(Tweet tweet) {
+        int index = tweets.size();
         tweets.add(tweet);
+        tweet.setId((long) index);
     }
     
     @Override
@@ -42,9 +44,7 @@ public class InMemTweetRepository implements TweetRepository  {
 
     @Override
     public void delete(Tweet tweet) {
-        tweets = tweets.stream()
-                .filter(t -> !t.getId().equals(tweet.getId()))
-                .collect(Collectors.toList());
+        tweets.remove((int) tweet.getId().longValue());
     }
 
     @Override
