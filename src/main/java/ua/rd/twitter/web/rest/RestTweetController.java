@@ -31,7 +31,7 @@ public class RestTweetController {
     }
 
     @RequestMapping(
-            value = "/tweet/all",
+            value = "/tweet",
             method = RequestMethod.GET)
     public List<Tweet> allTweets() {
         return tweetService.findAll();
@@ -45,12 +45,27 @@ public class RestTweetController {
     }
 
     @RequestMapping(
+            value = "/tweet/{tweetId}",
+            method = RequestMethod.DELETE)
+    public void deleteTweet(@PathVariable("tweetId") Tweet tweet) {
+        tweetService.delete(tweet);
+    }
+
+    @RequestMapping(
+            value = "/tweet",
+            method = RequestMethod.PUT)
+    public void updateTweet(@RequestBody Tweet tweet) {
+        tweetService.update(tweet);
+    }
+
+    @RequestMapping(
             value = "/tweet",
             method = RequestMethod.POST,
             consumes = "application/json")
-    public Tweet newTweet(@RequestBody Tweet tweet) {
+    public void newTweet(@RequestBody Tweet tweet) {
         tweetService.save(tweet);
-        return tweet;
     }
+
+
 }
 

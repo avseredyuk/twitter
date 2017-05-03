@@ -13,4 +13,5 @@ public interface TweetService {
     Optional<Tweet> find(Long id);
     Tweet createTweet(String text, User user, Tweet replyToTweet, Tweet retweetTweet);
     void delete(Tweet tweet);
+    void update(Tweet tweet);
 }

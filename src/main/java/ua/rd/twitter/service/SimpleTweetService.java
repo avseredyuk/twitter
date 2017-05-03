@@ -43,6 +43,8 @@ public class SimpleTweetService implements TweetService {
 
     @Override
     public void save(Tweet tweet) {
+        User user = userService.find(tweet.getUser().getName());
+        tweet.setUser(user);
         tweetRepository.save(tweet);
         timelineService.find(tweet.getUser()).put(tweet);
         addToMentionedTimelines(tweet);
@@ -73,6 +75,11 @@ public class SimpleTweetService implements TweetService {
     public void delete(Tweet tweet) {
         tweetRepository.delete(tweet);
         deleteFromMentionedTimelines(tweet);
+    }
+
+    @Override
+    public void update(Tweet tweet) {
+        tweetRepository.update(tweet);
     }
 
     private void addToRepliedTweetTimeline(Tweet tweet) {

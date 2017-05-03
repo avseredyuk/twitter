@@ -44,7 +44,21 @@ public class InMemTweetRepository implements TweetRepository  {
 
     @Override
     public void delete(Tweet tweet) {
-        tweets.remove((int) tweet.getIdd().longValue());
+        tweets = tweets.stream()
+                .filter(t -> t.getIdd() != null)
+                .filter(t -> t.getIdd().longValue() != tweet.getIdd().longValue())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void update(Tweet tweet) {
+        for (int i = 0; i < tweets.size(); i++ ) {
+            Tweet t = tweets.get(i);
+            if ((t.getIdd() != null) && (t.getIdd().longValue() == tweet.getIdd().longValue())) {
+                tweets.set(i, tweet);
+                break;
+            }
+        }
     }
 
     @Override

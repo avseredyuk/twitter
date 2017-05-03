@@ -12,4 +12,5 @@ public interface TweetRepository {
     List<Tweet> find(User user);
     Optional<Tweet> find(Long id);
     void delete(Tweet tweet);
+    void update(Tweet tweet);
 }

@@ -41,7 +41,7 @@ public class TweetControllerAdvice {
                             Optional<Tweet> tweet = tweetService.find(id);
                             setValue(tweet.orElseThrow(() -> new NoSuchTweetException("Tweet not found", id)));
                         } catch (NumberFormatException e) {
-                            //todo: log
+                            new NoSuchTweetException("Tweet not found", 0L);
                         }
                     }
                 });

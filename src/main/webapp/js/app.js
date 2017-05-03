@@ -1,53 +1,14 @@
-var sampleApp = angular.module('sampleApp', []);
+'use strict';
 
-sampleApp.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-        when('/ShowUsers', {
-            templateUrl: 'templates/show_users.html',
-            controller: 'ShowUsersController'
-        }).
-        when('/ShowTweets', {
-            templateUrl: 'templates/show_tweets.html',
-            controller: 'ShowTweetsController',
-            css: 'css/show_tweets.css'
-        }).
-        when('/ShowTimeline/:userName', {
-            templateUrl: 'templates/show_timeline.html',
-            controller: 'ShowTimelineController',
-            css: 'css/show_timeline.css'
-        }).
-        otherwise({
-            redirectTo: '/ShowUsers'
-        });
-    }]);
-
-sampleApp.controller('ShowTimelineController', function($scope, $http, $routeParams) {
-    var url = "/twitter/rest/timeline/" + $routeParams.userName;
-    $http({
-        url: url,
-        method: 'GET'
-    }).success(function (response) {
-        $scope.timeline = response;
-    });
-});
-
-sampleApp.controller('ShowUsersController', function($scope, $http) {
-    var url = "/twitter/rest/user/all";
-    $http({
-        url: url,
-        method: 'GET'
-    }).success(function (response) {
-        $scope.users = response;
-    });
-});
-
-sampleApp.controller('ShowTweetsController', function($scope, $http) {
-    var url = "/twitter/rest/tweet/all";
-    $http({
-        url: url,
-        method: 'GET'
-    }).success(function (response) {
-        $scope.tweets = response;
-    });
-});
+angular.module('todoApp', [
+	'ngRoute',
+    'todoApp.services',
+    'todoApp.controllers'
+]).config(function($routeProvider) {
+	  $routeProvider.when('/', {templateUrl: 'partial/tweet/list.html', controller: 'TweetListCtrl'});
+	  $routeProvider.when('/tweet/:tweetId', {templateUrl: 'partial/tweet/detail.html', controller: 'TweetDetailCtrl'});
+	  $routeProvider.when('/update/:tweetId', {templateUrl: 'partial/tweet/update.html', controller: 'TweetUpdateCtrl'});
+	  $routeProvider.when('/user', {templateUrl: 'partial/user/list.html', controller: 'UserListCtrl'});
+	  $routeProvider.when('/user/:userName', {templateUrl: 'partial/user/detail.html', controller: 'UserDetailCtrl'});
+	  $routeProvider.otherwise({redirectTo: '/'});
+	});

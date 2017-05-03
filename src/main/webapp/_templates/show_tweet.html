@@ -1,4 +1,4 @@
-<link rel="stylesheet" property="stylesheet" href="css/show_tweets.css">
+<link rel="stylesheet" property="stylesheet" href="css/show_tweet.css">
 <table>
     <tr>
         <th>ID</th>
@@ -7,7 +7,7 @@
         <th>Likes count</th>
         <th>Retweets count</th>
     </tr>
-    <tr ng-repeat="tweet in tweets">
+    <tr>
         <td>{{ tweet.idd }}</td>
         <td>{{ tweet.user.name }}</td>
         <td>{{ tweet.text }}</td>
@@ -15,3 +15,4 @@
         <td>{{ tweet.retweetsCount }}</td>
     </tr>
 </table>
+<b>{{ text }}</b>

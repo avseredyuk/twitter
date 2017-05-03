@@ -1,6 +1,7 @@
 package ua.rd.twitter.web.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +22,16 @@ public class RestUserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/user/all",
+    @RequestMapping(value = "/user",
                     method = RequestMethod.GET)
     public List<User> allUsers() {
         return userService.findAll();
+    }
+
+    @RequestMapping(
+            value = "/user/{username}",
+            method = RequestMethod.GET)
+    public User getTweetById(@PathVariable("username") User user) {
+        return user;
     }
 }
