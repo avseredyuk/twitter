@@ -15,39 +15,33 @@
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td>
-                    <a href="#/user/{{user.id}}">Show</a>
+                    <a href="#/user/{{user.name}}">Show</a>
                     &nbsp;&nbsp;
-                    <a href="#/update/{{user.id}}">Update</a>
+                    <a href="#/update/{{user.name}}">Update</a>
                     &nbsp;&nbsp;
-                    <button type="button" class="btn btn-warning" ng-click="remove(user.id)">Delete</button>
+                    <button type="button" class="btn btn-warning" ng-click="remove(user.name)">Delete</button>
                 </td>
             </tr>   
         </table>
     </div>
-    <div class="panel-body form-horizontal"  role="form" ng-controller="TweetAddCtrl">
-        <h3>Add a new Tweet</h3>
+    <div class="panel-body form-horizontal"  role="form" ng-controller="UserAddCtrl">
+        <h3>Add a new User</h3>
         <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">User</label>
+            <label for="name" class="col-sm-2 control-label">Name</label>
             <div class="col-xs-3">
-                <input type="text" name="username" ng-model="username" class="form-control"/>
+                <input type="text" name="name" ng-model="name" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <label for="text" class="col-sm-2 control-label">Text</label>
+            <label for="firstName" class="col-sm-2 control-label">First name</label>
             <div class="col-xs-3">
-                <input type="text" name="text" ng-model="text" class="form-control">
+                <input type="text" name="firstName" ng-model="firstName" class="form-control">
             </div>
         </div>
         <div class="form-group">
-            <label for="replyId" class="col-sm-2 control-label">Reply To Tweet Id</label>
+            <label for="lastName" class="col-sm-2 control-label">Last name</label>
             <div class="col-xs-3">
-                <input type="text" name="replyId" ng-model="replyId" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="retweetId" class="col-sm-2 control-label">Retweet Of Tweet Id</label>
-            <div class="col-xs-3">
-                <input type="text" name="retweetId" ng-model="retweetId" class="form-control">
+                <input type="text" name="lastName" ng-model="lastName" class="form-control">
             </div>
         </div>
         <div class="form-group">

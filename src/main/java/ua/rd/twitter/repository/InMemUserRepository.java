@@ -30,13 +30,21 @@ public class InMemUserRepository implements UserRepository {
     }
 
     @Override
-    public void edit(User user) {
+    public void update(User user) {
         for (int i = 0; i < users.size(); i++) {
             User curUser = users.get(i);
             if (curUser.getId().equals(user.getId())) {
                 users.set(i, user);
             }
         }
+    }
+
+    @Override
+    public void delete(User user) {
+        users = users.stream()
+//                .filter(u -> u.getName() != null)
+                .filter(u -> !u.getName().equals(user.getName()))
+                .collect(Collectors.toList());
     }
 
     @Override

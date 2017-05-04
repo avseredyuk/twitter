@@ -10,7 +10,6 @@ import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.UserService;
 
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by Anton_Serediuk on 4/14/2017.
@@ -51,7 +50,7 @@ public class UserController {
 
     @RequestMapping(value = "/{username}/edit", method = RequestMethod.POST)
     public ModelAndView editUser(User user) {
-        userService.edit(user);
+        userService.update(user);
         return new ModelAndView("redirect:/web/user/all");
     }
 

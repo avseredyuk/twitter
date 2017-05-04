@@ -1,9 +1,7 @@
 package ua.rd.twitter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
-import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.UserRepository;
 
@@ -30,8 +28,13 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public void edit(User user) {
-        userRepository.edit(user);
+    public void delete(User user) {
+        userRepository.delete(user);
+    }
+
+    @Override
+    public void update(User user) {
+        userRepository.update(user);
     }
 
     @Override

@@ -25,7 +25,7 @@ angular.module("todoApp.controllers", [])
     	$scope.text = "";
     	$scope.replyId = "";
 		$scope.retweetId = "";
-    	
+
     	$scope.add = function(){
     		var tweet = new Todo();
 			tweet.user = {};
@@ -53,10 +53,10 @@ angular.module("todoApp.controllers", [])
 			$scope.users.push(user);
 		});
 
-		$scope.remove = function(idx){
+		$scope.remove = function(userName){
 			$scope.users.forEach(function(user, index) {
-				if (user.id == idx) {
-					$scope.users[index].$remove({id: idx});
+				if (user.name == userName) {
+					$scope.users[index].$remove({userName: userName});
 					$scope.users.splice(index, 1);
 				}
 			});
@@ -64,4 +64,20 @@ angular.module("todoApp.controllers", [])
 	})
 	.controller("UserDetailCtrl", function($scope, $routeParams, User){
 		$scope.user = User.get({userName: $routeParams.userName});
+	})
+	.controller("UserAddCtrl", function($rootScope, $scope, $location, User){
+		$scope.name = "";
+		$scope.firstName = "";
+		$scope.lastName = "";
+
+		$scope.add = function(){
+			var user = new User();
+			user.name = $scope.name;
+			user.firstName = $scope.firstName;
+			user.lastName = $scope.lastName;
+			user.$save(function(){
+				$rootScope.$broadcast("updateUsers", user);
+				$location.path("/user");
+			});
+		};
 	});

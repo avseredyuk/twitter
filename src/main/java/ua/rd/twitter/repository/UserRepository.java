@@ -9,9 +9,10 @@ import java.util.List;
  */
 public interface UserRepository {
     void save(User user);
-    void edit(User user);
+    void update(User user);
     User find(String name);
     User find(Long id);
+    void delete(User user);
     List<User> findAll();
     List<User> findAllByUsernameList(List<String> userNames);
 }

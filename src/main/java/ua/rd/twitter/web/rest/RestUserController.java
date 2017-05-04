@@ -1,10 +1,8 @@
 package ua.rd.twitter.web.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.UserService;
 
@@ -31,7 +29,22 @@ public class RestUserController {
     @RequestMapping(
             value = "/user/{username}",
             method = RequestMethod.GET)
-    public User getTweetById(@PathVariable("username") User user) {
+    public User getUserByName(@PathVariable("username") User user) {
         return user;
+    }
+
+    @RequestMapping(
+            value = "/user/{username}",
+            method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable("username") User user) {
+        userService.delete(user);
+    }
+
+    @RequestMapping(
+            value = "/user",
+            method = RequestMethod.POST,
+            consumes = "application/json")
+    public void newTweet(@RequestBody User user) {
+        userService.save(user);
     }
 }
