@@ -1,0 +1,17 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{timeline.user.name}}'s Timeline</h3>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <td>User</td>
+                <td>Text</td>
+            </tr>
+            <tr ng-repeat="tweet in timeline.tweets">
+                <td><a href="#/user/{{tweet.user.name}}">{{tweet.user.name}}</a></td>
+                <td>{{tweet.text}}</td>
+            </tr>   
+        </table>
+    </div>
+</div>

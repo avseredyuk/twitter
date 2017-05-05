@@ -80,4 +80,7 @@ angular.module("todoApp.controllers", [])
 				$location.path("/user");
 			});
 		};
+	})
+	.controller("UserTimelineCtrl", function($scope, $routeParams, Timeline){
+		$scope.timeline = Timeline.get({userName: $routeParams.userName});
 	});

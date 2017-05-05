@@ -14,4 +14,11 @@ angular.module("todoApp.services", ["ngResource"])
                 method: 'PUT'
             }
         });
+    })
+    .factory("Timeline", function($resource){
+        return $resource('rest/timeline/:userName', {userName:'@userName'}, {
+            update: {
+                method: 'PUT'
+            }
+        });
     });

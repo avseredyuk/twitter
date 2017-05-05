@@ -10,5 +10,6 @@ angular.module('todoApp', [
 	  $routeProvider.when('/tweet/update/:tweetId', {templateUrl: 'partial/tweet/update.html', controller: 'TweetUpdateCtrl'});
 	  $routeProvider.when('/user', {templateUrl: 'partial/user/list.html', controller: 'UserListCtrl'});
 	  $routeProvider.when('/user/:userName', {templateUrl: 'partial/user/detail.html', controller: 'UserDetailCtrl'});
+	  $routeProvider.when('/timeline/:userName', {templateUrl: 'partial/user/timeline.html', controller: 'UserTimelineCtrl'});
 	  $routeProvider.otherwise({redirectTo: '/user'});
 	});
