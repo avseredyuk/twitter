@@ -16,14 +16,6 @@ import java.util.stream.Collectors;
 public class InMemUserRepository implements UserRepository {
     private List<User> users = new ArrayList<>();
 
-    @Autowired
-    private ArrayList<User> testUsers;
-
-    @PostConstruct
-    public void init(){
-        users.addAll(testUsers);
-    }
-
     @Override
     public void save(User user) {
         users.add(user);

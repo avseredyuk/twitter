@@ -14,14 +14,6 @@ import ua.rd.twitter.domain.User;
 @Repository("tweetRepository")
 public class InMemTweetRepository implements TweetRepository  {
     private List<Tweet> tweets = new ArrayList<>();
-
-    @Autowired
-    private ArrayList<Tweet> testTweets;
-    
-    @PostConstruct
-    public void init(){
-        tweets.addAll(testTweets);
-    }
     
     @Override
     public void save(Tweet tweet) {

@@ -1,12 +1,10 @@
 package ua.rd.twitter.domain;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Tweet extends ResourceSupport{
+public class Tweet {
     private User user;
     private String text;
     private List<User> likes = new ArrayList<>();

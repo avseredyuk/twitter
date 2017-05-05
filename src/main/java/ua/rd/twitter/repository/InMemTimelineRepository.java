@@ -17,14 +17,6 @@ import java.util.List;
 public class InMemTimelineRepository implements TimelineRepository {
     private List<Timeline> timelines = new ArrayList<>();
 
-    @Autowired
-    private ArrayList<Timeline> testTimelines;
-
-    @PostConstruct
-    public void init(){
-        timelines.addAll(testTimelines);
-    }
-
     @Override
     public Timeline find(User user) {
         return timelines.stream()

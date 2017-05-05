@@ -1,10 +1,14 @@
 package ua.rd.twitter.domain;
 
 public class User {
-    private String name;
-    private String firstName;
-    private String lastName;
+
     private Long id;
+
+    private String name;
+
+    private String firstName;
+
+    private String lastName;
 
     public User() {
     }
