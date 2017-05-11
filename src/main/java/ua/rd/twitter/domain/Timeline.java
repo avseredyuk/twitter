@@ -1,13 +1,29 @@
 package ua.rd.twitter.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
+@Table(name="timelines")
 public class Timeline {
-    private List<Tweet> tweets = new ArrayList<>();
-    private User user;
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
+
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval=true)
+    @JoinTable(
+            name="timeline_tweets",
+            joinColumns = @JoinColumn( name="timeline_id"),
+            inverseJoinColumns = @JoinColumn( name="tweet_id")
+    )
+    private List<Tweet> tweets = new ArrayList<>();
+
 
     public Timeline() {
     }
@@ -22,11 +38,11 @@ public class Timeline {
         tweets.add(tweet);
     }
 
-    public void putAll(Iterable<Tweet> tweetsSource) {
-        tweetsSource.forEach(this::put);
-    }
+//    public void putAll(Iterable<Tweet> tweetsSource) {
+//        tweetsSource.forEach(this::put);
+//    }
 
-    public Iterable<Tweet> getTweets() {
+    public List<Tweet> getTweets() {
         return new ArrayList<>(tweets);
     }
 
@@ -52,5 +68,14 @@ public class Timeline {
 
     public void remove(Tweet tweet) {
         tweets.remove(tweet);
+    }
+
+    @Override
+    public String toString() {
+        return "Timeline{" +
+                "id=" + id +
+                ", user=" + user +
+                ", tweets=" + tweets +
+                '}';
     }
 }

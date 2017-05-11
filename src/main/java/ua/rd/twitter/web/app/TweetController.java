@@ -45,9 +45,9 @@ public class TweetController {
 
     @RequestMapping(value = "/tweet", method = RequestMethod.GET)
     public @ResponseBody String tweetById(@RequestParam("id") Long id) {
-        return tweetService.find(id)
-                .map(Tweet::toString)
-                .orElse("Eggog");
+        return tweetService.find(id).toString();
+//                .map(Tweet::toString)
+//                .orElse("Eggog");
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

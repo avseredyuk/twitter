@@ -12,9 +12,8 @@ import java.util.List;
 public interface TimelineService {
     Timeline find(User user);
     Timeline create(User user);
-    void save(Timeline timeline);
+    void delete(User user);
     List<Timeline> findAll();
-    void update(Timeline timeline);
     void addTweetToTimeline(User user, Tweet tweet);
     void addTweetToTimelinesBatch(List<User> users, Tweet tweet);
     void removeTweetFromTimelinesBatch(List<User> users, Tweet tweet);

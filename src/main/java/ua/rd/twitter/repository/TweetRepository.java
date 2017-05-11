@@ -10,7 +10,7 @@ public interface TweetRepository {
     void save(Tweet tweet);
     List<Tweet> findAll();
     List<Tweet> find(User user);
-    Optional<Tweet> find(Long id);
+    Tweet find(Long id);
     void delete(Tweet tweet);
     void update(Tweet tweet);
 }

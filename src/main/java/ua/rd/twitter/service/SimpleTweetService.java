@@ -3,13 +3,13 @@ package ua.rd.twitter.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TweetRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,16 +42,18 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
+    @Transactional
     public void save(Tweet tweet) {
         User user = userService.find(tweet.getUser().getName());
         tweet.setUser(user);
         tweetRepository.save(tweet);
-        timelineService.find(tweet.getUser()).put(tweet);
+        timelineService.addTweetToTimeline(user, tweet);
         addToMentionedTimelines(tweet);
         addToRepliedTweetTimeline(tweet);
     }
 
     @Override
+    @Transactional
     public List<Tweet> findAll() {
         return tweetRepository.findAll();
     }
@@ -62,22 +64,26 @@ public class SimpleTweetService implements TweetService {
     }
 
     @Override
+    @Transactional
     public List<Tweet> find(User user) {
         return tweetRepository.find(user);
     }
 
     @Override
-    public Optional<Tweet> find(Long id) {
+    @Transactional
+    public Tweet find(Long id) {
         return tweetRepository.find(id);
     }
 
     @Override
+    @Transactional
     public void delete(Tweet tweet) {
-        tweetRepository.delete(tweet);
         deleteFromMentionedTimelines(tweet);
+        tweetRepository.delete(tweet);
     }
 
     @Override
+    @Transactional
     public void update(Tweet tweet) {
         tweetRepository.update(tweet);
     }
@@ -92,9 +98,11 @@ public class SimpleTweetService implements TweetService {
 
     private void addToMentionedTimelines(Tweet tweet) {
         List<String> mentionedUserNames = getMentionedUserNames(tweet);
-        List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
-        tweet.setMentionedUsers(mentionedUsers);
-        timelineService.addTweetToTimelinesBatch(mentionedUsers, tweet);
+        if (!mentionedUserNames.isEmpty()) {
+            List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
+            tweet.setMentionedUsers(mentionedUsers);
+            timelineService.addTweetToTimelinesBatch(mentionedUsers, tweet);
+        }
     }
 
     private List<String> getMentionedUserNames(Tweet tweet) {
@@ -112,6 +120,11 @@ public class SimpleTweetService implements TweetService {
     private void deleteFromMentionedTimelines(Tweet tweet) {
         List<String> mentionedUserNames = getMentionedUserNames(tweet);
         List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
+
+        System.out.println("**********************************************************************");
+        mentionedUsers.forEach(System.out::println);
+        System.out.println("**********************************************************************");
+
         timelineService.removeTweetFromTimelinesBatch(mentionedUsers, tweet);
     }
 }

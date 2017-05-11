@@ -3,6 +3,7 @@ package ua.rd.twitter.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.rd.twitter.domain.Timeline;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
@@ -23,10 +24,11 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
+    @Transactional
     public Timeline create(User user) {
         Timeline newTimeline = createEmptyTimeline();
         newTimeline.setUser(user);
-        save(newTimeline);
+        timelineRepository.save(newTimeline);
         return newTimeline;
     }
 
@@ -36,33 +38,33 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
+    @Transactional
     public Timeline find(User user) {
         return timelineRepository.find(user);
     }
 
     @Override
-    public void save(Timeline timeline) {
-        timelineRepository.save(timeline);
-    }
-
-    @Override
+    @Transactional
     public List<Timeline> findAll() {
         return timelineRepository.findAll();
     }
 
     @Override
-    public void update(Timeline timeline) {
-        timelineRepository.update(timeline);
+    @Transactional
+    public void delete(User user) {
+        Timeline timeline = timelineRepository.find(user);
+        timelineRepository.delete(timeline);
     }
 
     @Override
+    @Transactional
     public void addTweetToTimeline(User user, Tweet tweet) {
-        Timeline timeline = find(user);
-        timeline.put(tweet);
-        update(timeline);
+        Timeline timeline = timelineRepository.find(user);
+        timelineRepository.addTweetToTimeline(timeline, tweet);
     }
 
     @Override
+    @Transactional
     public void addTweetToTimelinesBatch(List<User> users, Tweet tweet) {
         users.stream()
                 .filter(mentionedUser -> !tweet.getUser().equals(mentionedUser))
@@ -72,12 +74,15 @@ public class SimpleTimelineService implements TimelineService{
     }
 
     @Override
+    @Transactional
     public void removeTweetFromTimelinesBatch(List<User> users, Tweet tweet) {
+        System.out.println("**********************************************************************");
         users.stream()
                 .forEach(mentionedUser -> {
-                    Timeline timeline = find(mentionedUser);
-                    timeline.remove(tweet);
-                    update(timeline);
+                    Timeline timeline = timelineRepository.find(mentionedUser);
+                    System.out.println(timeline);
+                    timelineRepository.removeTweetFromTimeline(timeline, tweet);
                 });
+        System.out.println("**********************************************************************");
     }
 }

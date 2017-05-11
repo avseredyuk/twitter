@@ -24,22 +24,20 @@ import static org.junit.Assert.assertNull;
 
 public class SimpleTweetServiceTest {
     @Autowired
-    private SimpleTweetService tweetService = null;
+    private TweetService tweetService;
 
     @Test
     public void findFound() throws Exception {
-        System.out.println("find by id");
-        Long id = 0L;
-        Optional<Tweet> result = tweetService.find(id);
-        assertNotNull(result.orElse(null));
+        Long id = 1L;
+        Tweet result = tweetService.find(id);
+        assertNotNull(result);
     }
 
     @Test
     public void findNotFound() throws Exception {
-        System.out.println("find by id");
         Long id = 100L;
-        Optional<Tweet> result = tweetService.find(id);
-        assertNull(result.orElse(null));
+        Tweet result = tweetService.find(id);
+        assertNull(result);
     }
 
 }

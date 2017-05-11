@@ -1,4 +1,4 @@
-package ua.rd.twitter.repository;
+package ua.rd.twitter.repository.inmem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,9 +13,9 @@ import java.util.List;
 /**
  * Created by Anton_Serediuk on 4/18/2017.
  */
-@Repository("timelineRepository")
-public class InMemTimelineRepository implements TimelineRepository {
-    private List<Timeline> timelines = new ArrayList<>();
+//@Repository("timelineRepository")
+public class InMemTimelineRepository /*implements TimelineRepository */{
+    /*private List<Timeline> timelines = new ArrayList<>();
 
     @Override
     public Timeline find(User user) {
@@ -45,4 +45,5 @@ public class InMemTimelineRepository implements TimelineRepository {
     public List<Timeline> findAll() {
         return new ArrayList<>(timelines);
     }
+    */
 }

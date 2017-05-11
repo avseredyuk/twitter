@@ -1,18 +1,51 @@
 package ua.rd.twitter.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Entity
+@Table(name="tweets")
 public class Tweet {
-    private User user;
-    private String text;
-    private List<User> likes = new ArrayList<>();
-    private List<User> mentionedUsers = new ArrayList<>();
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idd;
-    private Tweet replyTo;
-    private Tweet retweetOf;
+
+    @Column(name="text")
+    private String text;
+
+    @Column(name="retweet_count")
     private Integer retweetsCount = 0;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "reply_to")
+    private Tweet replyTo;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "retweet_of")
+    private Tweet retweetOf;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name="likes",
+        joinColumns = @JoinColumn( name="tweet_id"),
+        inverseJoinColumns = @JoinColumn( name="user_id")
+    )
+    private List<User> likes = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="mentions",
+            joinColumns = @JoinColumn( name="tweet_id"),
+            inverseJoinColumns = @JoinColumn( name="user_id")
+    )
+    private List<User> mentionedUsers = new ArrayList<>();
 
     public Tweet() {
     }
@@ -27,11 +60,15 @@ public class Tweet {
         this.idd = idd;
     }
 
-    public void like(User user) {
-        if (!likes.contains(user)) {
-            likes.add(user);
-        }
+    public List<User> getLikes() {
+        return likes;
     }
+
+//    public void like(User user) {
+//        if (!likes.contains(user)) {
+//            likes.add(user);
+//        }
+//    }
 
     public void setMentionedUsers(List<User> users) {
         List<User> filteredUsers = users.stream().filter(u -> !u.equals(this.user))
@@ -39,13 +76,10 @@ public class Tweet {
         mentionedUsers.addAll(filteredUsers);
     }
 
-    public List<User> getLikeUsers() {
-        return new ArrayList<>(likes);
-    }
 
-    public int getLikesCount() {
-        return likes.size();
-    }
+//    public int getLikesCount() {
+//        return likes.size();
+//    }
 
     public User getUser() {
         return user;
@@ -105,6 +139,7 @@ public class Tweet {
                 "user=" + user +
                 ", text='" + text + '\'' +
                 ", likes=" + likes +
+                ", RT count=" + retweetsCount +
                 ", mentionedUsers=" + mentionedUsers +
                 ", idd=" + idd +
                 '}';

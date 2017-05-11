@@ -1,13 +1,22 @@
 package ua.rd.twitter.domain;
 
-public class User {
+import javax.persistence.*;
 
+@Entity
+@Table(name="users")
+public class User {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Column(name="name")
     private String name;
 
+//    @Column(name="firstName")
     private String firstName;
 
+//    @Column(name="secondName")
     private String lastName;
 
     public User() {

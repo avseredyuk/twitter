@@ -1,8 +1,9 @@
-package ua.rd.twitter.repository;
+package ua.rd.twitter.repository.inmem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.rd.twitter.domain.User;
+import ua.rd.twitter.repository.UserRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -55,14 +56,6 @@ public class InMemUserRepository implements UserRepository {
     public User find(String name) {
         return users.stream()
                 .filter(u -> u.getName().equals(name))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    public User find(Long id) {
-        return users.stream()
-                .filter(u -> u.getId().equals(id))
                 .findFirst()
                 .get();
     }

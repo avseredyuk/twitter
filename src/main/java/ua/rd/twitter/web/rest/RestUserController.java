@@ -44,7 +44,7 @@ public class RestUserController {
             value = "/user",
             method = RequestMethod.POST,
             consumes = "application/json")
-    public void newTweet(@RequestBody User user) {
+    public void newUser(@RequestBody User user) {
         userService.save(user);
     }
 }

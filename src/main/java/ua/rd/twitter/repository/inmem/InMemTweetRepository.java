@@ -1,4 +1,4 @@
-package ua.rd.twitter.repository;
+package ua.rd.twitter.repository.inmem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
+import ua.rd.twitter.repository.TweetRepository;
 
 @Repository("tweetRepository")
-public class InMemTweetRepository implements TweetRepository  {
+public class InMemTweetRepository implements TweetRepository {
     private List<Tweet> tweets = new ArrayList<>();
     
     @Override
@@ -54,15 +55,11 @@ public class InMemTweetRepository implements TweetRepository  {
     }
 
     @Override
-    public Optional<Tweet> find(Long id) {
-        Optional<Tweet> tweet;
-        try {
-            tweet = tweets.stream()
+    public Tweet find(Long id) {
+        Tweet tweet = tweets.stream()
                     .filter(t -> t.getIdd().equals(id))
-                    .findFirst();
-        } catch (IndexOutOfBoundsException e) {
-            tweet = Optional.empty();
-        }
+                    .findFirst()
+                    .get();
         return tweet;
     }
 }

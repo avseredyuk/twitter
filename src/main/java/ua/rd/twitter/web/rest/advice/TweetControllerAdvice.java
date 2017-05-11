@@ -38,8 +38,9 @@ public class TweetControllerAdvice {
                     public void setAsText(String text) throws IllegalArgumentException {
                         try {
                             Long id = Long.valueOf(text);
-                            Optional<Tweet> tweet = tweetService.find(id);
-                            setValue(tweet.orElseThrow(() -> new NoSuchTweetException("Tweet not found", id)));
+                            Tweet tweet = tweetService.find(id);
+                            setValue(tweet);
+//                            setValue(tweet.orElseThrow(() -> new NoSuchTweetException("Tweet not found", id)));
                         } catch (NumberFormatException e) {
                             new NoSuchTweetException("Tweet not found", 0L);
                         }
@@ -47,9 +48,9 @@ public class TweetControllerAdvice {
                 });
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NoSuchTweetException.class)
-    public ExceptionDescription onException(NoSuchTweetException e) {
-        return new ExceptionDescription("some shit happened", e.getMessage() + " " + e.getId());
-    }
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    @ExceptionHandler(NoSuchTweetException.class)
+//    public ExceptionDescription onException(NoSuchTweetException e) {
+//        return new ExceptionDescription("some shit happened", e.getMessage() + " " + e.getId());
+//    }
 }

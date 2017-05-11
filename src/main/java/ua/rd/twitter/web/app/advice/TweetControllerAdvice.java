@@ -36,8 +36,8 @@ public class TweetControllerAdvice {
                     public void setAsText(String text) throws IllegalArgumentException {
                         try {
                             Long id = Long.valueOf(text);
-                            Optional<Tweet> tweet = tweetService.find(id);
-                            setValue(tweet.orElse(null));
+                            Tweet tweet = tweetService.find(id);
+                            setValue(tweet);
                         } catch (NumberFormatException e) {
                             //todo: log
                         }

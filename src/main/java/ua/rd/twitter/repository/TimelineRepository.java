@@ -1,6 +1,7 @@
 package ua.rd.twitter.repository;
 
 import ua.rd.twitter.domain.Timeline;
+import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public interface TimelineRepository {
     Timeline find(User user);
     void save(Timeline timeline);
-    void update(Timeline timeline);
+    void delete(Timeline timeline);
+    void addTweetToTimeline(Timeline timeline, Tweet tweet);
+    void removeTweetFromTimeline(Timeline timeline, Tweet tweet);
     List<Timeline> findAll();
 }
