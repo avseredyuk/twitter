@@ -12,8 +12,6 @@ import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TimelineRepository;
 
-import javax.persistence.EntityManager;
-import java.sql.Time;
 import java.util.List;
 
 /**

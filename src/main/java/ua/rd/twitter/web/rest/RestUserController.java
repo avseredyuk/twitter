@@ -1,8 +1,9 @@
 package ua.rd.twitter.web.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
-import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.service.UserService;
 
@@ -38,6 +39,13 @@ public class RestUserController {
             method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable("username") User user) {
         userService.delete(user);
+    }
+
+    @RequestMapping(
+            value = "/user",
+            method = RequestMethod.PUT)
+    public void updateTweet(@RequestBody User user) {
+        userService.update(user);
     }
 
     @RequestMapping(
