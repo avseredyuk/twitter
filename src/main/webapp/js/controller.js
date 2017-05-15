@@ -49,7 +49,6 @@ angular.module("todoApp.controllers", [])
     })
 	.controller("UserUpdateCtrl", function($scope, $routeParams, $location, User){
 		$scope.user = User.get({userName: $routeParams.userName});
-		console.log("WTF");
 		$scope.update = function(){
 			$scope.user.$update(function(){
 				$location.path("/user/"+$scope.user.name);
