@@ -73,16 +73,4 @@ public class SimpleTimelineService implements TimelineService{
                 );
     }
 
-    @Override
-    @Transactional
-    public void removeTweetFromTimelinesBatch(List<User> users, Tweet tweet) {
-        System.out.println("**********************************************************************");
-        users.stream()
-                .forEach(mentionedUser -> {
-                    Timeline timeline = timelineRepository.find(mentionedUser);
-                    System.out.println(timeline);
-                    timelineRepository.removeTweetFromTimeline(timeline, tweet);
-                });
-        System.out.println("**********************************************************************");
-    }
 }

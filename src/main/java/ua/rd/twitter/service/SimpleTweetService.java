@@ -78,7 +78,7 @@ public class SimpleTweetService implements TweetService {
     @Override
     @Transactional
     public void delete(Tweet tweet) {
-        deleteFromMentionedTimelines(tweet);
+        deleteFromAllTimelines(tweet);
         tweetRepository.delete(tweet);
     }
 
@@ -86,6 +86,10 @@ public class SimpleTweetService implements TweetService {
     @Transactional
     public void update(Tweet tweet) {
         tweetRepository.update(tweet);
+    }
+
+    private void deleteFromAllTimelines(Tweet tweet) {
+        tweetRepository.deleteFromAllTimelines(tweet);
     }
 
     private void addToRepliedTweetTimeline(Tweet tweet) {
@@ -117,14 +121,4 @@ public class SimpleTweetService implements TweetService {
         return mentionedUserNames;
     }
 
-    private void deleteFromMentionedTimelines(Tweet tweet) {
-        List<String> mentionedUserNames = getMentionedUserNames(tweet);
-        List<User> mentionedUsers = userService.findAllByUsernameList(mentionedUserNames);
-
-        System.out.println("**********************************************************************");
-        mentionedUsers.forEach(System.out::println);
-        System.out.println("**********************************************************************");
-
-        timelineService.removeTweetFromTimelinesBatch(mentionedUsers, tweet);
-    }
 }

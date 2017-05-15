@@ -16,5 +16,4 @@ public interface TimelineService {
     List<Timeline> findAll();
     void addTweetToTimeline(User user, Tweet tweet);
     void addTweetToTimelinesBatch(List<User> users, Tweet tweet);
-    void removeTweetFromTimelinesBatch(List<User> users, Tweet tweet);
 }

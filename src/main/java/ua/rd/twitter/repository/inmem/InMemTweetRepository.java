@@ -12,9 +12,9 @@ import ua.rd.twitter.domain.Tweet;
 import ua.rd.twitter.domain.User;
 import ua.rd.twitter.repository.TweetRepository;
 
-@Repository("tweetRepository")
-public class InMemTweetRepository implements TweetRepository {
-    private List<Tweet> tweets = new ArrayList<>();
+//@Repository("tweetRepository")
+public class InMemTweetRepository /*implements TweetRepository */{
+    /*private List<Tweet> tweets = new ArrayList<>();
     
     @Override
     public void save(Tweet tweet) {
@@ -62,4 +62,5 @@ public class InMemTweetRepository implements TweetRepository {
                     .get();
         return tweet;
     }
+    */
 }

@@ -63,4 +63,12 @@ public class MariaDBTweetRepository implements TweetRepository {
         sessionFactory.getCurrentSession()
                 .update(tweet);
     }
+
+    @Override
+    public void deleteFromAllTimelines(Tweet tweet) {
+        sessionFactory.getCurrentSession()
+                .createSQLQuery("delete from timeline_tweets where tweet_id = :id")
+                .setLong("id", tweet.getIdd())
+                .executeUpdate();
+    }
 }

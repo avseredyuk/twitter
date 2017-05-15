@@ -13,14 +13,14 @@ public class Timeline {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval=true)
     @JoinTable(
-            name="timeline_tweets",
-            joinColumns = @JoinColumn( name="timeline_id"),
-            inverseJoinColumns = @JoinColumn( name="tweet_id")
+            name = "timeline_tweets",
+            joinColumns = @JoinColumn(name = "timeline_id"),
+            inverseJoinColumns = @JoinColumn(name = "tweet_id")
     )
     private List<Tweet> tweets = new ArrayList<>();
 

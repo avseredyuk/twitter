@@ -13,4 +13,5 @@ public interface TweetRepository {
     Tweet find(Long id);
     void delete(Tweet tweet);
     void update(Tweet tweet);
+    void deleteFromAllTimelines(Tweet tweet);
 }
